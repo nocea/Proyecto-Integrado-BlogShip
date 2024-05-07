@@ -1,0 +1,184 @@
+
+2024-02-28 11:15:45 - Se ha registrado un usuario
+2024-02-28 11:15:53 - Se ha confirmado el inicio de sesión de un usuario
+2024-02-28 11:16:04 - Se ha mostrado la vista index
+2024-02-28 11:16:05 - Se ha cerrrado sesión de un usuario
+2024-02-28 11:16:13 - Se ha enviado un email
+2024-02-28 11:20:47 - Se ha mostrado la vista index
+2024-02-28 11:32:29 - Se ha guardado un post nuevo
+2024-02-28 11:32:37 - Se ha cerrrado sesión de un usuario
+2024-02-28 11:32:44 - Se ha mostrado la vista index
+2024-02-28 11:32:45 - se ha entrado en la vista admin
+2024-02-28 11:32:45 - se ha entrado en la vista admin/post
+2024-02-28 11:32:46 - se ha borrado un post6
+2024-02-28 11:32:46 - se ha entrado en la vista admin/post
+2024-02-28 11:32:51 - Se ha cerrrado sesión de un usuario
+2024-02-28 11:32:59 - Se ha mostrado la vista index
+2024-02-28 11:33:32 - Se ha guardado un post nuevo
+2024-02-28 11:34:16 - Se ha guardado un post nuevo
+2024-02-28 11:34:20 - Se ha cerrrado sesión de un usuario
+2024-02-28 11:34:36 - Se ha mostrado la vista index
+2024-02-28 11:34:38 - se ha entrado en la vista admin
+2024-02-28 11:34:38 - se ha entrado en la vista admin/post
+2024-02-28 11:34:40 - se ha borrado un post7
+2024-02-28 11:34:40 - se ha entrado en la vista admin/post
+2024-02-28 11:34:48 - Se ha cerrrado sesión de un usuario
+2024-02-28 11:34:57 - Se ha mostrado la vista index
+2024-02-28 11:44:16 - Se ha añadido un nuevo  comentario al post:8
+2024-02-28 11:44:33 - Se ha añadido un nuevo  comentario al post:8
+2024-02-28 11:48:37 - Se ha cerrrado sesión de un usuario
+2024-02-28 11:53:26 - Se ha mostrado la vista index
+2024-02-28 11:54:56 - Se ha mostrado la vista index
+2024-02-28 11:54:58 - se ha entrado en la vista admin
+2024-02-28 11:57:11 - se ha entrado en la vista admin/usuarios
+2024-02-28 12:01:52 - se ha entrado en la vista /admin/nuevoUsuario
+2024-02-28 12:03:47 - se ha entrado en la vista admin/usuarios
+2024-02-28 12:03:48 - Se ha entrado en la vista de /admin/editar/5
+2024-02-28 12:04:37 - Se ha mostrado la vista index
+2024-02-28 12:04:38 - se ha entrado en la vista admin
+2024-02-28 12:04:39 - se ha entrado en la vista admin/usuarios
+2024-02-28 12:04:40 - Se ha entrado en la vista de /admin/editar/5
+2024-02-28 12:07:34 - se ha entrado en la vista admin
+2024-02-28 12:07:35 - Se ha cerrrado sesión de un usuario
+2024-02-28 12:07:44 - Se ha mostrado la vista index
+2024-02-28 12:07:44 - se ha entrado en la vista admin
+2024-02-28 12:07:46 - se ha entrado en la vista admin/usuarios
+2024-02-28 12:07:49 - se ha entrado en la vista admin
+2024-02-28 12:07:50 - se ha entrado en la vista admin/post
+2024-02-28 12:09:58 - Se ha mostrado la vista index
+2024-02-28 12:09:59 - se ha entrado en la vista admin
+2024-02-28 12:09:59 - se ha entrado en la vista admin/usuarios
+2024-02-28 12:10:01 - Se ha entrado en la vista de /admin/editar/5
+2024-02-28 12:10:02 - se ha entrado en la vista admin/usuarios
+2024-02-28 12:10:03 - se ha entrado en la vista /admin/nuevoUsuario
+2024-02-28 12:10:03 - se ha entrado en la vista admin/usuarios
+2024-02-28 12:10:04 - se ha entrado en la vista admin
+2024-02-28 12:10:04 - se ha entrado en la vista admin/post
+2024-02-28 12:10:06 - Se ha cerrrado sesión de un usuario
+2024-04-04 11:25:18 - Se ha registrado un usuario
+2024-04-04 11:25:29 - Se ha confirmado el inicio de sesión de un usuario
+2024-04-04 11:25:47 - Se ha mostrado la vista index
+2024-04-04 11:26:47 - Se ha guardado un post nuevo
+2024-04-04 11:26:51 - Se ha añadido un nuevo  comentario al post:1
+2024-04-04 11:34:38 - Se ha cerrrado sesión de un usuario
+2024-04-04 11:34:45 - Se ha mostrado la vista index
+2024-04-04 11:36:37 - Se ha mostrado la vista index
+2024-04-04 11:37:46 - Se ha guardado un post nuevo
+2024-04-04 11:39:35 - Se ha guardado un post nuevo
+2024-04-04 11:39:44 - Se ha guardado un post nuevo
+2024-04-04 11:40:07 - Se ha guardado un post nuevo
+2024-04-04 11:40:22 - Se ha guardado un post nuevo
+2024-04-04 11:40:57 - Se ha mostrado la vista index
+2024-04-04 11:53:55 - Se ha mostrado la vista index
+2024-04-04 12:08:15 - Se ha añadido un nuevo  comentario al post:4
+2024-04-04 12:29:00 - Se ha mostrado la vista index
+2024-04-04 12:30:44 - Se ha mostrado la vista index
+2024-04-04 12:42:02 - Se ha mostrado la vista index
+2024-04-04 12:42:08 - Se ha mostrado la vista index
+2024-04-04 12:44:02 - Se ha mostrado la vista index
+2024-04-04 12:44:09 - Se ha añadido un nuevo  comentario al post:1
+2024-04-04 12:44:12 - Se ha añadido un nuevo  comentario al post:1
+2024-04-04 12:44:15 - Se ha añadido un nuevo  comentario al post:2
+2024-04-04 12:44:32 - Se ha añadido un nuevo  comentario al post:4
+2024-04-04 12:46:45 - Se ha cerrrado sesión de un usuario
+2024-04-04 12:47:08 - Se ha mostrado la vista index
+2024-04-04 12:47:09 - se ha entrado en la vista admin
+2024-04-04 12:47:10 - se ha entrado en la vista admin/usuarios
+2024-04-04 12:47:12 - Se ha entrado en la vista de /admin/editar/2
+2024-04-04 12:47:14 - se ha entrado en la vista admin/usuarios
+2024-04-04 12:47:17 - se ha entrado en la vista admin
+2024-04-04 12:47:18 - se ha entrado en la vista admin/post
+2024-04-04 12:47:20 - se ha borrado un post6
+2024-04-04 12:47:20 - se ha entrado en la vista admin/post
+2024-04-04 12:47:21 - se ha borrado un post5
+2024-04-04 12:47:21 - se ha entrado en la vista admin/post
+2024-04-04 12:47:21 - se ha borrado un post4
+2024-04-04 12:47:21 - se ha entrado en la vista admin/post
+2024-04-04 12:47:22 - se ha borrado un post3
+2024-04-04 12:47:22 - se ha entrado en la vista admin/post
+2024-04-04 12:47:23 - se ha borrado un post2
+2024-04-04 12:47:23 - se ha entrado en la vista admin/post
+2024-04-04 12:47:25 - se ha borrado un post1
+2024-04-04 12:47:25 - se ha entrado en la vista admin/post
+2024-04-04 12:47:28 - Se ha cerrrado sesión de un usuario
+2024-04-04 12:48:47 - Se ha mostrado la vista index
+2024-04-04 12:48:48 - se ha entrado en la vista admin
+2024-04-04 12:48:49 - se ha entrado en la vista admin/usuarios
+2024-04-04 12:48:51 - Se ha cerrrado sesión de un usuario
+2024-04-04 12:49:02 - Se ha mostrado la vista index
+2024-04-04 12:49:23 - Se ha mostrado la vista index
+2024-04-04 13:00:48 - Se ha mostrado la vista index
+2024-04-04 13:00:49 - se ha entrado en la vista admin
+2024-04-04 13:00:52 - Se ha mostrado la vista index
+2024-04-04 13:00:53 - Se ha cerrrado sesión de un usuario
+2024-04-04 13:01:07 - Se ha mostrado la vista index
+2024-04-04 13:06:12 - Se ha mostrado la vista index
+2024-04-04 13:06:31 - Se ha mostrado la vista index
+2024-04-04 13:06:52 - Se ha cerrrado sesión de un usuario
+2024-04-04 13:07:19 - Se ha mostrado la vista index
+2024-04-04 13:08:32 - Se ha mostrado la vista index
+2024-04-04 13:08:35 - Se ha mostrado la vista index
+2024-04-04 13:08:40 - Se ha mostrado la vista index
+2024-04-04 13:08:48 - Se ha cerrrado sesión de un usuario
+2024-04-04 13:08:59 - Se ha mostrado la vista index
+2024-04-04 13:09:03 - Se ha cerrrado sesión de un usuario
+2024-04-04 13:09:08 - Se ha mostrado la vista index
+2024-04-04 13:09:11 - Se ha mostrado la vista index
+2024-04-04 13:09:14 - se ha entrado en la vista admin
+2024-04-04 13:09:19 - se ha entrado en la vista admin
+2024-04-04 13:09:20 - se ha entrado en la vista admin/post
+2024-04-04 13:09:21 - se ha entrado en la vista admin
+2024-04-04 13:09:21 - se ha entrado en la vista admin/usuarios
+2024-04-04 13:09:24 - Se ha mostrado la vista index
+2024-04-04 13:09:25 - Se ha cerrrado sesión de un usuario
+2024-04-08 14:53:52 - Se ha mostrado la vista index
+2024-04-08 14:54:02 - Se ha guardado un post nuevo
+2024-04-08 14:54:09 - Se ha añadido un nuevo  comentario al post:7
+2024-04-08 14:54:12 - Se ha añadido un nuevo  comentario al post:7
+2024-04-08 14:54:15 - Se ha añadido un nuevo  comentario al post:7
+2024-04-08 14:54:28 - Se ha guardado un post nuevo
+2024-04-08 14:54:32 - Se ha añadido un nuevo  comentario al post:8
+2024-04-08 15:11:21 - Se ha mostrado la vista index
+2024-04-08 15:11:31 - Se ha mostrado la vista index
+2024-04-08 15:11:39 - Se ha cerrrado sesión de un usuario
+2024-04-08 15:11:47 - Se ha mostrado la vista index
+2024-04-08 15:12:50 - Se ha mostrado la vista index
+2024-04-08 15:20:33 - Se ha mostrado la vista index
+2024-04-08 15:25:24 - Se ha mostrado la vista index
+2024-04-08 15:27:29 - Se ha mostrado la vista index
+2024-04-08 15:30:05 - Se ha mostrado la vista index
+2024-04-08 15:37:34 - Se ha mostrado la vista index
+2024-04-08 15:39:37 - Se ha mostrado la vista index
+2024-04-08 15:48:35 - Se ha mostrado la vista index
+2024-04-08 15:49:54 - Se ha mostrado la vista index
+2024-04-08 15:58:56 - Se ha mostrado la vista index
+2024-04-08 16:08:22 - Se ha mostrado la vista index
+2024-04-08 16:10:13 - Se ha mostrado la vista index
+2024-04-08 16:10:40 - Se ha cerrrado sesión de un usuario
+2024-04-08 16:10:47 - Se ha mostrado la vista index
+2024-04-08 16:11:27 - Se ha cerrrado sesión de un usuario
+2024-04-08 16:11:35 - Se ha mostrado la vista index
+2024-04-08 16:11:36 - se ha entrado en la vista admin
+2024-04-08 16:11:37 - se ha entrado en la vista admin/post
+2024-04-08 16:11:38 - se ha borrado un post7
+2024-04-08 16:11:38 - se ha entrado en la vista admin/post
+2024-04-08 16:11:39 - se ha borrado un post8
+2024-04-08 16:11:39 - se ha entrado en la vista admin/post
+2024-04-08 16:11:41 - Se ha cerrrado sesión de un usuario
+2024-04-08 16:11:48 - Se ha mostrado la vista index
+2024-04-08 16:12:27 - Se ha guardado un post nuevo
+2024-04-08 16:14:44 - Se ha mostrado la vista index
+2024-04-08 16:14:54 - Se ha añadido un nuevo  comentario al post:9
+2024-04-08 16:15:13 - Se ha cambiado la imagen del usuario:mnoceacabrera@gmail.com
+2024-04-08 16:17:04 - Se ha mostrado la vista index
+2024-04-08 16:20:07 - Se ha mostrado la vista index
+2024-04-08 16:20:23 - Se ha guardado un post nuevo
+2024-04-08 16:20:29 - Se ha cerrrado sesión de un usuario
+2024-04-08 16:20:38 - Se ha mostrado la vista index
+2024-04-08 16:22:41 - Se ha mostrado la vista index
+2024-04-08 16:22:44 - Se ha cerrrado sesión de un usuario
+2024-04-08 16:23:16 - Se ha mostrado la vista index
+2024-05-07 13:35:09 - Se ha mostrado la vista index
+2024-05-07 13:35:21 - Se ha mostrado la vista index
+2024-05-07 13:35:33 - Se ha añadido un nuevo  comentario al post:9
+2024-05-07 13:41:27 - Se ha mostrado la vista index

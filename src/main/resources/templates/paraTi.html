@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>BlogShip</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../static/css/styles.css"
+	th:href="@{/css/styles.css}">
+<link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Agregar Bootstrap Icons CSS -->
+<link href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css"
+	rel="stylesheet">
+<style>
+.like-container {
+    position: relative; /* Posición relativa para que el círculo de likes sea relativo a este contenedor */
+}
+
+.likes-count {
+    position: absolute; /* Posición absoluta para superponer el número en el círculo */
+    top: -10px; /* Ajusta la posición verticalmente */
+    right: -10px; /* Ajusta la posición horizontalmente */
+    background-color: #7B93A4; /* Color de fondo del círculo */
+    color: white; /* Color del texto */
+    border-radius: 50%; /* Hace que el círculo tenga bordes redondeados */
+    padding: 5px; /* Espacio interno dentro del círculo */
+    font-size: 0.8rem; /* Tamaño del texto */
+}
+
+.post-card {
+	width: calc(33.33% - 30px);
+	/* Ancho del post (33.33% del contenedor menos márgenes) */
+	margin: 15px; /* Márgenes entre los posts */
+	float: left; /* Flotar a la izquierda para que se muestren en línea */
+}
+
+@media ( max-width : 992px) {
+	.post-card {
+		width: calc(50% - 30px);
+		/* Cambiar a dos columnas en dispositivos más pequeños */
+	}
+}
+
+@media ( max-width : 768px) {
+	.post-card {
+		width: calc(100% - 30px);
+		/* Cambiar a una columna en dispositivos extra pequeños */
+	}
+}
+
+.post-image {
+	width: 100%;
+	/* Hacer que la imagen ocupe todo el espacio disponible en la tarjeta */
+	height: 200px;
+	/* Establecer una altura fija para mantener el aspecto cuadrado */
+	object-fit: cover;
+	/* Ajustar la imagen dentro del contenedor sin distorsionarla */
+}
+
+/* Estilo para los botones de comentar y like */
+.btn-action {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	font-size: 1rem;
+	color: #6c757d;
+	cursor: pointer;
+	margin-right: 10px; /* Espaciado entre los botones */
+	text-decoration: none; /* Quitar subrayado del enlace */
+}
+
+.btn-action:hover {
+	text-decoration: none;
+}
+
+/* Estilo para los iconos rellenos */
+.bi-filled {
+	fill: currentColor;
+}
+/* Estilo para el modal */
+#imageModal .modal-dialog {
+	width: 80%;
+	max-width: 800px; /* Ancho máximo del modal */
+	margin: auto; /* Centrar el modal horizontalmente */
+}
+
+#imageModal .modal-dialog .modal-content {
+	width: 100%;
+	max-width: 800px; /* Ancho máximo del modal */
+}
+
+#imageModal .modal-dialog .modal-content img {
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+	/* Hacer que la imagen ocupe todo el ancho del modal */
+	max-height: 80vh; /* Altura máxima del modal */
+	object-fit: contain;
+	/* Ajustar la imagen para que quepa completamente en el modal */
+	display: block; /* Para centrar verticalmente la imagen */
+	margin: 0 auto; /* Para centrar verticalmente la imagen */
+}
+</style>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+			<div id="top" class="container">
+				<a class="nav-link" th:href="@{/index}"><i
+					class="bi bi-rocket-takeoff"></i><i class="bi bi-caret-left"></i></a>
+				<div class="collapse navbar-collapse justify-content-center"
+					id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item active"><a class="nav-link"
+							th:href="@{/controller/logout}">Cerrar Sesión</a></li>
+					</ul>
+					<ul class="navbar-nav">
+						<li class="nav-item active"><a class="nav-link"
+							sec:authorize="hasRole('ROLE_USUARIO')"
+							th:href="@{/inicio/miCuenta}">Mi cuenta</a></li>
+					</ul>
+					<ul class="navbar-nav">
+						<li class="nav-item active"><a class="nav-link"
+							sec:authorize="hasRole('ROLE_USUARIO')"
+							th:href="@{/inicio/paraTi}">Para Ti</a></li>
+					</ul>
+				</div>
+				<a class="nav-link" th:href="@{/index}"><i
+					class="bi bi-caret-right"></i><i class="bi bi-rocket-takeoff"></i></a>
+			</div>
+		</nav>
+	</header>
+	<div id="inicio"></div>
+	<div class="container contenido1" style="margin-top: 70px;">
+		<main role="main" class="pb-3">
+			<div class="fixed-bottom fixed-left p-3">
+				<a class="btn btn-dark btn-lg" th:href="@{/inicio/crearPost}"
+					role="button">Crear Post</a>
+			</div>
+			<div class="row justify-content-center">
+				<!-- Mostrar cada post como una columna estrecha centrada -->
+				<div th:each="post, postIndex : ${posts}" class="col-md-4 post-card">
+					<div class="card mb-3 shadow rounded">
+						<div class="card-body">
+							<h4 class="card-title">
+								@<span th:text="${post.usuario_alias_post}"></span>
+							</h4>
+							<h5 class="card-subtitle mb-2 text-muted">
+								<span th:text="${post.titulo_post}"></span>
+							</h5>
+							<!-- Mostrar la imagen del post con la clase 'post-image' -->
+							<img
+								class="card-img-top post-image mx-auto d-block img-fluid rounded"
+								th:src="'data:image/jpeg;base64,' + ${post.string_imagen_post}"
+								onclick="showImageModal(this.src)" alt="Imagen Post">
+							<p class="card-text mt-3" th:text="${post.pieDeFoto_post}"></p>
+							<div class="d-flex justify-content-between align-items-center">
+								<!-- Botón de Comentar -->
+								<a class="btn-action"
+									th:href="@{'/inicio/comentar/' + ${post.id_post}}"> <i
+									class="bi bi-chat bi-filled"></i><span
+									th:text="${post.cantidad_comentarios}"></span>
+								</a>
+								<div class="like-container">
+									<!-- Botón de Like -->
+									<form th:action="@{'/inicio/registrarLike/' + ${post.id_post}}"
+										method="post">
+										<button type="submit" class="btn-action">
+											<i class="bi bi-heart bi-filled"></i>
+										</button>
+									</form>
+									<!-- Cantidad de Likes -->
+									<span class="likes-count" th:text="${post.cantidad_likes}"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<div class="modal fade" id="imageModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<img src="" alt="Imagen en grande" id="modalImage"
+						class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
