@@ -182,3 +182,14 @@
 2024-05-07 13:35:21 - Se ha mostrado la vista index
 2024-05-07 13:35:33 - Se ha añadido un nuevo  comentario al post:9
 2024-05-07 13:41:27 - Se ha mostrado la vista index
+2024-05-13 16:43:14 - Se ha mostrado la vista index
+2024-05-13 16:43:17 - se ha entrado en la vista admin
+2024-05-13 16:43:18 - se ha entrado en la vista admin/usuarios
+2024-05-13 16:43:19 - se ha entrado en la vista admin
+2024-05-13 16:43:20 - se ha entrado en la vista admin
+2024-05-13 16:43:21 - se ha entrado en la vista admin
+2024-05-13 16:43:22 - se ha entrado en la vista admin/post
+2024-05-13 16:43:25 - se ha entrado en la vista admin
+2024-05-13 16:43:26 - se ha entrado en la vista admin/usuarios
+2024-05-13 16:43:29 - Se ha cerrrado sesión de un usuario
+2024-05-13 16:43:49 - Se ha mostrado la vista index
