@@ -14,15 +14,25 @@ public class PostDTO {
 	    private String pieDeFoto_post;
 	    private String usuario_alias_post;
 	    private Usuario usuario;
+	    private String ubicacion;
 	    private int cantidad_comentarios;
 	    private List<Like> likes;
 	    private int cantidad_likes;
 	    //gets y sets
+	    
 	    public int getCantidad_likes() {
 	        return cantidad_likes;
 	    }
 
-	    public void setCantidad_likes(int cantidad_likes) {
+	    public String getUbicacion() {
+			return ubicacion;
+		}
+
+		public void setUbicacion(String ubicacion) {
+			this.ubicacion = ubicacion;
+		}
+
+		public void setCantidad_likes(int cantidad_likes) {
 	        this.cantidad_likes = cantidad_likes;
 	    }
 	    public int getCantidad_comentarios() {
@@ -113,7 +123,7 @@ public class PostDTO {
 			super();
 		}
 
-		public PostDTO(Long id_post, String titulo_post, byte[] imagen_post, String string_imagen_post,
+		public PostDTO(Long id_post,String ubicacion, String titulo_post, byte[] imagen_post, String string_imagen_post,
 	            String pieDeFoto_post, String usuario_alias_post, Usuario usuario, int cantidad_comentarios,
 	            List<Like> likes, int cantidad_likes) {
 	        super();
@@ -126,6 +136,7 @@ public class PostDTO {
 	        this.usuario = usuario;
 	        this.cantidad_comentarios = cantidad_comentarios;
 	        this.likes = likes;
+	        this.ubicacion=ubicacion;
 	        this.cantidad_likes = cantidad_likes;
 	    }
 

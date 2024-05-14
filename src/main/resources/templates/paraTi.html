@@ -54,6 +54,12 @@
 	/* Establecer una altura fija para mantener el aspecto cuadrado */
 	object-fit: cover;
 	/* Ajustar la imagen dentro del contenedor sin distorsionarla */
+	border: 2px solid transparent; /* Borde inicial transparente */
+	transition: border-color 0.3s ease-in-out; /* Transición suave del color del borde */
+}
+
+.post-image-container:hover .post-image {
+	border-color: #007bff; /* Color del borde al pasar el ratón sobre el contenedor */
 }
 
 /* Estilo para los botones de comentar y like */
@@ -76,29 +82,7 @@
 .bi-filled {
 	fill: currentColor;
 }
-/* Estilo para el modal */
-#imageModal .modal-dialog {
-	width: 80%;
-	max-width: 800px; /* Ancho máximo del modal */
-	margin: auto; /* Centrar el modal horizontalmente */
-}
 
-#imageModal .modal-dialog .modal-content {
-	width: 100%;
-	max-width: 800px; /* Ancho máximo del modal */
-}
-
-#imageModal .modal-dialog .modal-content img {
-	width: 100%;
-	height: auto;
-	max-width: 100%;
-	/* Hacer que la imagen ocupe todo el ancho del modal */
-	max-height: 80vh; /* Altura máxima del modal */
-	object-fit: contain;
-	/* Ajustar la imagen para que quepa completamente en el modal */
-	display: block; /* Para centrar verticalmente la imagen */
-	margin: 0 auto; /* Para centrar verticalmente la imagen */
-}
 </style>
 </head>
 <body>
@@ -129,66 +113,48 @@
 			</div>
 		</nav>
 	</header>
-	<div id="inicio"></div>
-	<div class="container contenido1" style="margin-top: 70px;">
-		<main role="main" class="pb-3">
-			<div class="fixed-bottom fixed-left p-3">
-				<a class="btn btn-dark btn-lg" th:href="@{/inicio/crearPost}"
-					role="button">Crear Post</a>
-			</div>
-			<div class="row justify-content-center">
-				<!-- Mostrar cada post como una columna estrecha centrada -->
-				<div th:each="post, postIndex : ${posts}" class="col-md-4 post-card">
-					<div class="card mb-3 shadow rounded">
-						<div class="card-body">
-							<h4 class="card-title">
-								@<span th:text="${post.usuario_alias_post}"></span>
-							</h4>
-							<h5 class="card-subtitle mb-2 text-muted">
-								<span th:text="${post.titulo_post}"></span>
-							</h5>
-							<!-- Mostrar la imagen del post con la clase 'post-image' -->
-							<img
-								class="card-img-top post-image mx-auto d-block img-fluid rounded"
-								th:src="'data:image/jpeg;base64,' + ${post.string_imagen_post}"
-								onclick="showImageModal(this.src)" alt="Imagen Post">
-							<p class="card-text mt-3" th:text="${post.pieDeFoto_post}"></p>
-							<div class="d-flex justify-content-between align-items-center">
-								<!-- Botón de Comentar -->
-								<a class="btn-action"
-									th:href="@{'/inicio/comentar/' + ${post.id_post}}"> <i
-									class="bi bi-chat bi-filled"></i><span
-									th:text="${post.cantidad_comentarios}"></span>
-								</a>
-								<div class="like-container">
-									<!-- Botón de Like -->
-									<form th:action="@{'/inicio/registrarLike/' + ${post.id_post}}"
-										method="post">
-										<button type="submit" class="btn-action">
-											<i class="bi bi-heart bi-filled"></i>
-										</button>
-									</form>
-									<!-- Cantidad de Likes -->
-									<span class="likes-count" th:text="${post.cantidad_likes}"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</main>
-	</div>
-	<div class="modal fade" id="imageModal" tabindex="-1"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<img src="" alt="Imagen en grande" id="modalImage"
-						class="img-fluid">
-				</div>
-			</div>
-		</div>
-	</div>
+	 <div id="inicio"></div>
+    <div class="container contenido1" style="margin-top: 70px;">
+        <main role="main" class="pb-3">
+            <div class="fixed-bottom fixed-left p-3">
+                <a class="btn btn-dark btn-lg" th:href="@{/inicio/crearPost}"
+                    role="button">Crear Post</a>
+            </div>
+            <div class="row justify-content-center">
+                <div th:each="post, postIndex : ${posts}" class="col-md-4 post-card">
+                    <div class="card mb-3 shadow rounded">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                @<span th:text="${post.usuario_alias_post}"></span>
+                            </h4>
+                            <h5 class="card-subtitle mb-2 text-muted">
+                                <span th:text="${post.titulo_post}"></span>
+                            </h5>
+                            <a class="post-image-container" th:href="@{'/inicio/verPost/' + ${post.id_post}}">
+                                <img class="card-img-top post-image mx-auto d-block img-fluid rounded"
+                                    th:src="'data:image/jpeg;base64,' + ${post.string_imagen_post}"
+                                    alt="Imagen Post">
+                            </a>
+                            <p class="card-text mt-3" th:text="${post.pieDeFoto_post}"></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a class="btn-action" th:href="@{'/inicio/comentar/' + ${post.id_post}}">
+                                    <i class="bi bi-chat bi-filled"></i><span th:text="${post.cantidad_comentarios}"></span>
+                                </a>
+                                <div class="like-container">
+                                    <form th:action="@{'/inicio/registrarLike/' + ${post.id_post}}" method="post">
+                                        <button type="submit" class="btn-action">
+                                            <i class="bi bi-heart bi-filled"></i>
+                                        </button>
+                                    </form>
+                                    <span class="likes-count" th:text="${post.cantidad_likes}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

@@ -25,7 +25,8 @@ public class Post {
 
     @Column(nullable = false)
     private byte[] imagen_post; 
-
+    @Column(nullable = false)
+    private String ubicacion; 
     @Column(nullable = true)
     private String pieDeFoto_post;
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL)
@@ -35,18 +36,25 @@ public class Post {
     private Usuario usuario;
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Like> likes;
-	public Post(Long id, String titulo_post, byte[] imagen_post, String pieDeFoto_post, Usuario usuario) {
+	public Post(Long id, String titulo_post,String ubicacion, byte[] imagen_post, String pieDeFoto_post, Usuario usuario) {
 		super();
 		this.id_post = id;
 		this.titulo_post = titulo_post;
 		this.imagen_post = imagen_post;
 		this.pieDeFoto_post = pieDeFoto_post;
 		this.usuario = usuario;
+		this.ubicacion=ubicacion;
 	}
 	public Post() {
 		super();
 	}
 
+	public String getUbicacion() {
+		return ubicacion;
+	}
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
 	public List<Like> getLikes() {
 		return likes;
 	}

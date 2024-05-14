@@ -113,7 +113,7 @@ public class UsuarioNormalControlador {
 	@PostMapping("/inicio/guardarPost")
     public String guardarPost(@RequestParam("titulo") String titulo,
                               @RequestParam("imagen") MultipartFile imagen,
-                              @RequestParam("pieDeFoto") String pieDeFoto,Model model) {
+                              @RequestParam("pieDeFoto") String pieDeFoto,@RequestParam("ubicacion") String ubicacion,Model model) {
 		try {
 			System.out.println("entra en guardar post");
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -127,6 +127,7 @@ public class UsuarioNormalControlador {
         post.setImagen_post(imagenBytes);
         post.setPieDeFoto_post(pieDeFoto);
         post.setUsuario(usuario);
+        post.setUbicacion(ubicacion);
         postRepositorio.save(post);
         Util.log("Se ha guardado un post nuevo");
 		return "redirect:/inicio/paraTi";

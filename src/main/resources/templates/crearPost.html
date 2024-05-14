@@ -4,44 +4,52 @@
 <meta charset="UTF-8">
 <title>BlogShip</title>
 <!-- Agregar Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Agregar Bootstrap Icons CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Agregar Bootstrap Icons CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}">
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+<style>
+    #mapa {
+        height: 400px;
+    }
+</style>
 </head>
 <body>
 <header>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-            <div id="top" class="container">
-                <a class="nav-link" th:href="@{/index}"><i class="bi bi-rocket-takeoff"></i><i class="bi bi-caret-left"></i></a>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" th:href="@{/controller/logout}">Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link"sec:authorize="hasRole('ROLE_USUARIO')" th:href="@{/inicio/miCuenta}">Mi cuenta</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link"sec:authorize="hasRole('ROLE_USUARIO')" th:href="@{/inicio/paraTi}">Para Ti</a>
-                        </li>
-                    </ul>
-                </div>
-                <a class="nav-link" th:href="@{/index}"><i class="bi bi-caret-right"></i><i class="bi bi-rocket-takeoff"></i></a>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div id="top" class="container">
+            <a class="nav-link" th:href="@{/index}"><i class="bi bi-rocket-takeoff"></i><i class="bi bi-caret-left"></i></a>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/controller/logout}">Cerrar Sesión</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" sec:authorize="hasRole('ROLE_USUARIO')" th:href="@{/inicio/miCuenta}">Mi cuenta</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" sec:authorize="hasRole('ROLE_USUARIO')" th:href="@{/inicio/paraTi}">Para Ti</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
-    <div id="inicio"></div>
-    <div class="container contenido1" style="margin-top: 70px;">
-        <main role="main" class="pb-3">
+            <a class="nav-link" th:href="@{/index}"><i class="bi bi-caret-right"></i><i class="bi bi-rocket-takeoff"></i></a>
+        </div>
+    </nav>
+</header>
+<div id="inicio"></div>
+<div class="container contenido1" style="margin-top: 70px;">
+    <main role="main" class="pb-3">
         <div class="card">
             <div class="card-header">Crear Nuevo Post</div>
             <div class="card-body">
-            <!-- El enctype es para que le formulario pueda enviar imagenes/archivos -->
+                <!-- El enctype es para que le formulario pueda enviar imagenes/archivos -->
                 <form th:action="@{/inicio/guardarPost}" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="titulo">Título</label>
@@ -53,25 +61,78 @@
                     </div>
                     <div class="form-group">
                         <label for="pieDeFoto">Pie de Foto</label>
-                        <textarea class="form-control" id="pieDeFoto" name="pieDeFoto" th:required="true"rows="3"></textarea>
+                        <textarea class="form-control" id="pieDeFoto" name="pieDeFoto" th:required="true" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="ubicacion">Ubicación</label>
+                        <input type="hidden" id="ubicacion" name="ubicacion">
+                        <div id="mapa"></div>
                     </div>
                     <button type="submit" class="btn btn-primary">Crear Post</button>
+                    <div id="feedback"></div>
                 </form>
             </div>
         </div>
-        </main>
-    </div>
-    <footer class="bg-light text-dark text-center py-3 mt-auto footer">
-        <div class="container">
-            <!--Le asigno una id al enlace para indicar a que parte ir
+    </main>
+</div>
+<footer class="bg-light text-dark text-center py-3 mt-auto footer">
+    <div class="container">
+        <!--Le asigno una id al enlace para indicar a que parte ir
             (este vuelve justo abajo del header al inicio de todo)-->
-            <p><a href="#inicio"><i class="bi bi-arrow-up-circle-fill"></i></a></p>
-            <p class="mb-0">© 2024 BlogShip</p>
-            <p class="mb-0">Diseñado por <a href="https://github.com/nocea" target="_blank">Mario Nocea Cabrera</a></p>
-        </div>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>   
+        <p><a href="#inicio"><i class="bi bi-arrow-up-circle-fill"></i></a></p>
+        <p class="mb-0">© 2024 BlogShip</p>
+        <p class="mb-0">Diseñado por <a href="https://github.com/nocea" target="_blank">Mario Nocea Cabrera</a></p>
+    </div>
+</footer>
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<!-- jQuery, Popper.js, Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+//Variable global para almacenar el marcador
+var marker;
+
+// Función para inicializar el mapa
+function initMap() {
+    // Crear una instancia del mapa y establecer su ubicación inicial
+    var map = L.map('mapa').setView([51.505, -0.09], 13);
+
+    // Agregar una capa de mapa base (en este caso, OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Manejar el clic en el mapa para obtener la ubicación
+    map.on('click', function (e) {
+        // Obtener las coordenadas del clic
+        var lat = e.latlng.lat;
+        var lng = e.latlng.lng;
+
+        // Si el marcador aún no existe, créalo
+        if (!marker) {
+            marker = L.marker([lat, lng]).addTo(map);
+        } else {
+            // Si el marcador ya existe, actualiza su posición
+            marker.setLatLng([lat, lng]);
+        }
+     // Combina latitud y longitud en una sola cadena
+        var ubicacion = lat + ',' + lng;
+
+        // Asigna el valor combinado al campo de ubicación
+        document.getElementById('ubicacion').value = ubicacion;
+
+        // Mostrar el feedback
+        document.getElementById('feedback').innerHTML = 'Ubicación seleccionada: Latitud ' + lat + ', Longitud ' + lng;
+    });
+}
+
+// Llamar a la función initMap cuando el documento esté listo
+$(document).ready(function () {
+    initMap();
+});
+</script>
 </body>
 </html>
