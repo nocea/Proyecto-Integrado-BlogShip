@@ -239,4 +239,12 @@ public class UsuarioNormalControlador {
 	        return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
 	}
+	@GetMapping("/inicio/chats")
+	public String chats(Model model) {
+		try {
+		return "chats";
+		}catch (Exception e) {
+			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
+	    }
+	}
 }

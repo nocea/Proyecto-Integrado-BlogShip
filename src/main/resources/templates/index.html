@@ -32,6 +32,11 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link"sec:authorize="hasRole('ROLE_USUARIO')" th:href="@{/inicio/chats}">Chats</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
                         <li style="margin-left: 10px;"class="nav-item active">
                         <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" class="nav-link">Administración</a>
                     </li>
