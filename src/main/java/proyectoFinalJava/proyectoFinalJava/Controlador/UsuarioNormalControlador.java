@@ -22,6 +22,7 @@ import proyectoFinalJava.proyectoFinalJava.Modelos.Post;
 import proyectoFinalJava.proyectoFinalJava.Modelos.Usuario;
 import proyectoFinalJava.proyectoFinalJava.Repositorio.ComentarioRepositorio;
 import proyectoFinalJava.proyectoFinalJava.Repositorio.LikeRepositorio;
+import proyectoFinalJava.proyectoFinalJava.Repositorio.MensajeRepositorio;
 import proyectoFinalJava.proyectoFinalJava.Repositorio.PostRepositorio;
 import proyectoFinalJava.proyectoFinalJava.Repositorio.UsuarioRepositorio;
 import proyectoFinalJava.proyectoFinalJava.Servicios.PostServicio;
@@ -42,6 +43,8 @@ public class UsuarioNormalControlador {
 	PostServicio postServicio;
 	@Autowired
 	ComentarioRepositorio comentarioRepositorio;
+	@Autowired
+	MensajeRepositorio mensajeRepositorio;
 	/**
 	 * metodo para mostrar los datos del usuario que ha iniciado sesión
 	 * @param model
@@ -239,10 +242,19 @@ public class UsuarioNormalControlador {
 	        return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
 	}
-	@GetMapping("/inicio/chats")
-	public String chats(Model model) {
+	@GetMapping("/inicio/conversaciones")
+	public String chats(Model model,Authentication authentication) {
 		try {
-		return "chats";
+			String username = authentication.getName();
+			Usuario usuario = usuarioRepositorio.findFirstByEmailUsuario(username);
+			List<Usuario> usuarioConversaciones=mensajeRepositorio.findUniqueUsersInConversationsWithUser(usuario);
+			List<UsuarioDTO> usuarioConversacionesDTO=new ArrayList<>();
+			for (Usuario usuarioConversacion : usuarioConversaciones) {
+	            UsuarioDTO usuarioDTO = usuarioServicio.convertirUsuarioADTO(usuarioConversacion);
+	            usuarioConversacionesDTO.add(usuarioDTO);
+	        }
+			model.addAttribute("usuariosConversaciones",usuarioConversacionesDTO);
+			return "conversaciones";
 		}catch (Exception e) {
 			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
