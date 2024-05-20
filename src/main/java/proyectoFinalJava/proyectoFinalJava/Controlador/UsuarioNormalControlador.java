@@ -216,13 +216,19 @@ public class UsuarioNormalControlador {
 			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
 	}
+	/**
+	 * método para guardar un like en la base de datos
+	 * @param idPost
+	 * @param model
+	 * @return
+	 */
 	@PostMapping("/inicio/registrarLike/{id_post}")
 	public String registrarLike(@PathVariable("id_post")Long idPost,Model model) {
 		try {
-			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();//obtengo el usuario que ha iniciado sesion
 	        String username = authentication.getName();
 	        Usuario usuario = usuarioRepositorio.findFirstByEmailUsuario(username);
-	        Post post = postRepositorio.findById(idPost).orElse(null);
+	        Post post = postRepositorio.findById(idPost).orElse(null);//busco el post al que se le quiere dar like
 	        // Verificar si el usuario ya ha dado like al post
 	        Like likeExistente = likeRepositorio.findByUsuarioAndPost(usuario, post);
 	        if (likeExistente != null) {
@@ -242,18 +248,24 @@ public class UsuarioNormalControlador {
 	        return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
 	}
+	/**
+	 * Muestra las conversaciones del usuario que tiene iniciada la sesión.
+	 * @param model
+	 * @param authentication
+	 * @return
+	 */
 	@GetMapping("/inicio/conversaciones")
 	public String chats(Model model,Authentication authentication) {
 		try {
 			String username = authentication.getName();
 			Usuario usuario = usuarioRepositorio.findFirstByEmailUsuario(username);
-			List<Usuario> usuarioConversaciones=mensajeRepositorio.findUniqueUsersInConversationsWithUser(usuario);
+			List<Usuario> usuarioConversaciones=mensajeRepositorio.findUniqueUsersInConversationsWithUser(usuario);//obtengo todas las conversaciones salientes y entrantes
 			List<UsuarioDTO> usuarioConversacionesDTO=new ArrayList<>();
-			for (Usuario usuarioConversacion : usuarioConversaciones) {
+			for (Usuario usuarioConversacion : usuarioConversaciones) {//convierto a dto
 	            UsuarioDTO usuarioDTO = usuarioServicio.convertirUsuarioADTO(usuarioConversacion);
 	            usuarioConversacionesDTO.add(usuarioDTO);
 	        }
-			model.addAttribute("usuariosConversaciones",usuarioConversacionesDTO);
+			model.addAttribute("usuariosConversaciones",usuarioConversacionesDTO);//añado la lista dto a la vista
 			return "conversaciones";
 		}catch (Exception e) {
 			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
