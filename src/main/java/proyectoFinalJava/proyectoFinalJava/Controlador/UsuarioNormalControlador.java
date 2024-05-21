@@ -1,8 +1,7 @@
 package proyectoFinalJava.proyectoFinalJava.Controlador;
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Base64;
 import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -61,11 +60,14 @@ public class UsuarioNormalControlador {
 		try {
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String username = authentication.getName();//obtengo el nombre de la autentificación
-		Usuario usuario = usuarioRepositorio.findFirstByEmailUsuario(username);//lo busco
-		UsuarioDTO usuarioDTO = usuarioServicio.convertirUsuarioADTO(usuario);//lo convierto a DTO
+		
+		Usuario usuario = usuarioRepositorio.findFirstByEmailUsuario(username);
+		
+		UsuarioDTO usuarioDTO = usuarioServicio.convertirUsuarioADTO(usuario);
+		
 		byte[] imagen_usuario=usuarioDTO.getImagen_usuario();
 		String imagenBase64 = Base64.getEncoder().encodeToString(imagen_usuario);
-		model.addAttribute("imagenBase64", imagenBase64);//añado imagen
+		usuarioDTO.setString_imagen_usuario(imagenBase64);
 		model.addAttribute("usuarioDTO", usuarioDTO);//añado usuario
 		return "miCuenta";
 		}catch (Exception e) {

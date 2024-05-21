@@ -429,3 +429,25 @@
 2024-05-21 15:08:35 - se ha entrado en la vista admin/post
 2024-05-21 15:08:40 - Se ha cerrrado sesión de un usuario
 2024-05-21 15:34:50 - Se ha confirmado el inicio de sesión de un usuario
+2024-05-21 16:00:25 - Se ha mostrado la vista index
+2024-05-21 16:00:26 - Se ha producido un error al mostrar los datos d el usuario
+2024-05-21 16:02:13 - Se ha mostrado la vista index
+2024-05-21 16:02:14 - Se ha producido un error al mostrar los datos d el usuario
+2024-05-21 16:04:15 - Se ha mostrado la vista index
+2024-05-21 16:04:16 - Se ha producido un error al mostrar los datos d el usuario
+2024-05-21 16:08:31 - Se ha mostrado la vista index
+2024-05-21 16:08:31 - Se ha producido un error al mostrar los datos d el usuario
+2024-05-21 16:08:55 - Se ha mostrado la vista index
+2024-05-21 16:08:56 - Se ha producido un error al mostrar los datos d el usuario
+2024-05-21 16:08:58 - Se ha mostrado la vista index
+2024-05-21 16:09:09 - Se ha producido un error al mostrar los datos d el usuario
+2024-05-21 16:10:16 - Se ha mostrado la vista index
+2024-05-21 16:10:29 - Se ha cambiado la imagen del usuario:mnoceacabrera@gmail.com
+2024-05-21 16:12:56 - Se ha mostrado la vista index
+2024-05-21 16:13:00 - Se ha mostrado la vista index
+2024-05-21 16:13:22 - Se ha guardado un post nuevo
+2024-05-21 16:13:57 - Se ha mostrado la vista index
+2024-05-21 16:16:55 - Se ha registrado un usuario
+2024-05-21 16:17:15 - Se ha mostrado la vista index
+2024-05-21 16:17:22 - Se ha mostrado la vista index
+2024-05-21 16:18:40 - Se ha mostrado la vista index

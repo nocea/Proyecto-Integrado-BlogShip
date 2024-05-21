@@ -42,7 +42,7 @@
         <div class="container confirmation-container">
         <div class="jumbotron">
             <div class="user-info">
-            <img th:src="'data:image/jpeg;base64,' + ${imagenBase64}" alt="Imagen de Usuario">
+            <img th:src="'data:image/jpeg;base64,' + ${usuarioDTO.string_imagen_usuario}" alt="Imagen de Usuario">
                 <h1 class="display-4">@<span th:text="${usuarioDTO.alias_usuario}"></span></h1>
             </div>
             <hr class="my-4">
