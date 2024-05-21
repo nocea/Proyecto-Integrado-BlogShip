@@ -451,3 +451,17 @@
 2024-05-21 16:17:15 - Se ha mostrado la vista index
 2024-05-21 16:17:22 - Se ha mostrado la vista index
 2024-05-21 16:18:40 - Se ha mostrado la vista index
+2024-05-21 16:30:14 - Se ha mostrado la vista index
+2024-05-21 16:30:15 - Se ha producido un error al mostrar los datos d el usuario
+2024-05-21 16:34:34 - Se ha registrado un usuario
+2024-05-21 16:48:33 - Se ha mostrado la vista index
+2024-05-21 16:48:34 - Se ha producido un error al mostrar los datos d el usuario
+2024-05-21 16:51:01 - Se ha registrado un usuario
+2024-05-21 16:55:13 - Se ha registrado un usuario
+2024-05-21 16:56:59 - Se ha registrado un usuario
+2024-05-21 17:03:22 - Se ha registrado un usuario
+2024-05-21 17:08:40 - Se ha registrado un usuario
+2024-05-21 17:10:38 - Se ha mostrado la vista index
+2024-05-21 17:45:21 - Se ha registrado un usuario
+2024-05-21 17:50:01 - Se ha registrado un usuario
+2024-05-21 17:50:32 - Se ha mostrado la vista index

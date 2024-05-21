@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Calendar;
 import java.util.Properties;
 import java.util.UUID;
@@ -41,12 +42,31 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 	 */
 	@Override
 	public Usuario usuarioDTOaUsuario(UsuarioDTO usuarioDTO) {
-		String imagePath = "src/main/resources/static/fotoInicial.png";
-		byte[] imagen_usuario = convertImageToByteArray(imagePath);
-		Usuario usuarioDAO=new Usuario(usuarioDTO.getNombreCompleto_usuario(),
-				usuarioDTO.getEmail_usuario(), usuarioDTO.getAlias_usuario(), usuarioDTO.getMovil_usuario(),
-				usuarioDTO.getPasswd_usuario(), "ROLE_USUARIO",false,imagen_usuario);
-		return usuarioDAO;
+	    String imagePath = "/static/fotoInicial.png";
+	    byte[] imagen_usuario = convertImageToByteArray2(imagePath);
+	    System.out.println(imagen_usuario);
+	    Usuario usuarioDAO = new Usuario(
+	        usuarioDTO.getNombreCompleto_usuario(),
+	        usuarioDTO.getEmail_usuario(),
+	        usuarioDTO.getAlias_usuario(),
+	        usuarioDTO.getMovil_usuario(),
+	        usuarioDTO.getPasswd_usuario(),
+	        "ROLE_USUARIO",
+	        false,
+	        imagen_usuario
+	    );
+	    return usuarioDAO;
+	}
+	private byte[] convertImageToByteArray2(String imagePath) {
+	    try (InputStream is = getClass().getResourceAsStream(imagePath)) {
+	        if (is == null) {
+	            throw new IOException("Image not found: " + imagePath);
+	        }
+	        return is.readAllBytes();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        return new byte[0];
+	    }
 	}
 	/**
 	 * metodo para convertir un string de una imagen a array
@@ -76,7 +96,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 			return false;
 		}else {
 			usuarioDAO.setPasswd_usuario(passwordEncoder.encode(usuarioDTO.getPasswd_usuario()));
-		usuarioDAO = usuarioRepositorio.save(usuarioDAO);
+		usuarioRepositorio.save(usuarioDAO);
 		EnviarEmailRegistro(usuarioDAO.getEmailUsuario());
 		return true;
 		}
