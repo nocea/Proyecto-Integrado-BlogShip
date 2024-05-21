@@ -1,7 +1,10 @@
 package proyectoFinalJava.proyectoFinalJava.Controlador;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Calendar;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,10 +17,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import proyectoFinalJava.proyectoFinalJava.DTO.ComentarioDTO;
+import proyectoFinalJava.proyectoFinalJava.DTO.MensajeDTO;
 import proyectoFinalJava.proyectoFinalJava.DTO.PostDTO;
 import proyectoFinalJava.proyectoFinalJava.DTO.UsuarioDTO;
 import proyectoFinalJava.proyectoFinalJava.Modelos.Comentario;
 import proyectoFinalJava.proyectoFinalJava.Modelos.Like;
+import proyectoFinalJava.proyectoFinalJava.Modelos.Mensajes;
 import proyectoFinalJava.proyectoFinalJava.Modelos.Post;
 import proyectoFinalJava.proyectoFinalJava.Modelos.Usuario;
 import proyectoFinalJava.proyectoFinalJava.Repositorio.ComentarioRepositorio;
@@ -255,20 +260,81 @@ public class UsuarioNormalControlador {
 	 * @return
 	 */
 	@GetMapping("/inicio/conversaciones")
-	public String chats(Model model,Authentication authentication) {
+	public String conversaciones(Model model,Authentication authentication) {
 		try {
 			String username = authentication.getName();
 			Usuario usuario = usuarioRepositorio.findFirstByEmailUsuario(username);
 			List<Usuario> usuarioConversaciones=mensajeRepositorio.findUniqueUsersInConversationsWithUser(usuario);//obtengo todas las conversaciones salientes y entrantes
 			List<UsuarioDTO> usuarioConversacionesDTO=new ArrayList<>();
 			for (Usuario usuarioConversacion : usuarioConversaciones) {//convierto a dto
+				
 	            UsuarioDTO usuarioDTO = usuarioServicio.convertirUsuarioADTO(usuarioConversacion);
+	            
+	            byte[] imagen_usuario = usuarioDTO.getImagen_usuario();
+	            
+	            String imagenBase64 = Base64.getEncoder().encodeToString(imagen_usuario);
+	            
+	            usuarioDTO.setString_imagen_usuario(imagenBase64);
 	            usuarioConversacionesDTO.add(usuarioDTO);
+	            
 	        }
 			model.addAttribute("usuariosConversaciones",usuarioConversacionesDTO);//añado la lista dto a la vista
 			return "conversaciones";
 		}catch (Exception e) {
 			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
+	    }
+	}
+	@GetMapping("/inicio/conversaciones/{idReceptor}")
+	public String chat(@PathVariable("idReceptor") Long idReceptor, Model model,Authentication authentication) {
+		try {
+		String username = authentication.getName();
+		Usuario usuario1 = usuarioRepositorio.findFirstByEmailUsuario(username);
+		Usuario usuarioReceptor=usuarioRepositorio.buscarPorId(idReceptor);
+		UsuarioDTO usuarioReceptorDTO=usuarioServicio.convertirUsuarioADTO(usuarioReceptor);
+		List<Mensajes> mensajes = mensajeRepositorio.findMensajesEntreUsuarios(usuario1.getId_usuario(), idReceptor);
+		List<MensajeDTO> mensajesDTO = mensajes.stream()
+                .map(mensaje -> {
+                    MensajeDTO mensajeDTO = new MensajeDTO();
+                    mensajeDTO.setMensaje(mensaje.getContenido());
+                    mensajeDTO.setFechaEnvio(mensaje.getFechaEnvio());
+                    mensajeDTO.setIdEmisor(mensaje.getidEmisor().getId_usuario());
+                    mensajeDTO.setIdReceptor(mensaje.getidReceptor().getId_usuario());
+                    return mensajeDTO;
+                })
+                .collect(Collectors.toList());
+		byte[] imagen_usuario = usuarioReceptorDTO.getImagen_usuario();
+        
+        String imagenBase64 = Base64.getEncoder().encodeToString(imagen_usuario);
+        
+        usuarioReceptorDTO.setString_imagen_usuario(imagenBase64);
+		model.addAttribute("usuarioReceptor",usuarioReceptorDTO);
+        model.addAttribute("idUsuario", idReceptor);
+        model.addAttribute("mensajes", mensajesDTO);
+        // Devolver el nombre de la vista Thymeleaf que quieres mostrar, en este caso, la vista "conversaciones"
+        return "chat";
+		}catch (Exception e) {
+			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
+	    }
+    }
+	@PostMapping("/inicio/mandarMensaje")
+	public String mandarMensaje(@RequestParam("idReceptor") Long idReceptor,
+			@RequestParam("mensaje") String mensaje,Model model,Authentication authentication) {
+		try {
+			Mensajes mensajeNuevo=new Mensajes();
+			String username = authentication.getName();
+			Usuario usuario = usuarioRepositorio.findFirstByEmailUsuario(username);
+			Usuario usuarioReceptor=usuarioRepositorio.buscarPorId(idReceptor);
+			Calendar fechaEnvioMensaje = Calendar.getInstance();
+			fechaEnvioMensaje.setTimeInMillis(System.currentTimeMillis());
+			mensajeNuevo.setContenido(mensaje);
+			mensajeNuevo.setFechaEnvio(fechaEnvioMensaje);
+			mensajeNuevo.setidEmisor(usuario);
+			mensajeNuevo.setidReceptor(usuarioReceptor);
+			mensajeRepositorio.save(mensajeNuevo);
+	        return "redirect:/inicio/conversaciones/"+idReceptor;
+		}catch (Exception e) {
+	        Util.log("Se ha producido un error al dar like a un post");
+	        return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
 	}
 }

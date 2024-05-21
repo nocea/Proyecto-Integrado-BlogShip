@@ -26,6 +26,7 @@ public class Mensajes {
     private Usuario idReceptor;
 
     private String contenido;
+    
     private Calendar fechaEnvio;
     //constructores
 	public Mensajes(Long id, Usuario idEmisor, Usuario idReceptor, String contenido, Calendar fechaEnvio) {

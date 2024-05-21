@@ -128,12 +128,15 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 	private void inicializarUsuarioAdmin() {	
 		if (!usuarioRepositorio.existsByNombreCompletoUsuario("admin")) {
 			Usuario admin = new Usuario();
+			String imagePath = "src/main/resources/static/fotoInicial.png";
+			byte[] imagen_usuario = convertImageToByteArray(imagePath);
 			admin.setNombreCompletoUsuario("admin");
 			admin.setPasswd_usuario(passwordEncoder.encode("Admin1234"));
 			admin.setAlias_usuario(null);
 			admin.setEmailUsuario("admin@admin");
 			admin.setRol_usuario("ROLE_ADMIN");
 			admin.setRegistrado(true);
+			admin.setImagen_usuario(imagen_usuario);
 			usuarioRepositorio.save(admin);
 		}
 	}

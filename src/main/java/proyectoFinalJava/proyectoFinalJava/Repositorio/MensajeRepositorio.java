@@ -19,5 +19,7 @@ public interface MensajeRepositorio extends JpaRepository<Mensajes, Long> {
 	           "FROM Mensajes m " +
 	           "WHERE m.idEmisor = :usuario")
 	    List<Usuario> findUniqueUsersInConversationsWithUser(@Param("usuario") Usuario usuario);
+	@Query("SELECT m FROM Mensajes m WHERE (m.idEmisor.id_usuario = :idUsuario1 AND m.idReceptor.id_usuario = :idUsuario2) OR (m.idEmisor.id_usuario = :idUsuario2 AND m.idReceptor.id_usuario = :idUsuario1) ORDER BY m.fechaEnvio")
+    List<Mensajes> findMensajesEntreUsuarios(@Param("idUsuario1") Long idUsuario1, @Param("idUsuario2") Long idUsuario2);
 
 }
