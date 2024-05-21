@@ -87,7 +87,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 	 */
 	@Override
 	public void EnviarEmailRegistro(String email) {
-		String urlRecuperar="http://localhost:8080/controller/confirmarRegistro/"+email;
+		String urlRecuperar="https://blogship.mnocea.eu/proyectoFinalJava/controller/confirmarRegistro/"+email;
 		try {
 		 MimeMessage mensaje = javaMailSender.createMimeMessage();
          MimeMessageHelper helper = new MimeMessageHelper(mensaje, true, "UTF-8");
@@ -162,7 +162,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 	 */
 	@Override
 	public void EnviarEmailRecuperar(String email, String token) {
-		String urlRecuperar="http://localhost:8080/controller/cambiarContrasena/"+email+"/"+token;
+		String urlRecuperar="https://blogship.mnocea.eu/proyectoFinalJava/controller/cambiarContrasena/"+email+"/"+token;
 		try {
 		 MimeMessage mensaje = javaMailSender.createMimeMessage();
          MimeMessageHelper helper = new MimeMessageHelper(mensaje, true, "UTF-8");

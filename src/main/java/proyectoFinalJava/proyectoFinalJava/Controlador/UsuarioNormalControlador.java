@@ -57,8 +57,9 @@ public class UsuarioNormalControlador {
 	 * @return
 	 */
 	@GetMapping("/inicio/miCuenta")
-	public String miCuenta(Model model,Authentication authentication) {
+	public String miCuenta(Model model) {
 		try {
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String username = authentication.getName();//obtengo el nombre de la autentificación
 		Usuario usuario = usuarioRepositorio.findFirstByEmailUsuario(username);//lo busco
 		UsuarioDTO usuarioDTO = usuarioServicio.convertirUsuarioADTO(usuario);//lo convierto a DTO
