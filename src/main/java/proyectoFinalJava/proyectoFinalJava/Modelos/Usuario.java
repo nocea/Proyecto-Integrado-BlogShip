@@ -27,6 +27,11 @@ public class Usuario {
 	private String passwd_usuario;
 	@Column(name = "rol_usuario", nullable = true, length = 20)
 	private String rol;
+	@OneToMany(mappedBy = "idEmisor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Mensajes> mensajesEnviados;
+
+    @OneToMany(mappedBy = "idReceptor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Mensajes> mensajesRecibidos;
 	private Boolean registrado;
 	private byte[] imagen_usuario;
 	public byte[] getImagen_usuario() {

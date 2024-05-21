@@ -198,7 +198,7 @@ public class AdminControlador {
 			Util.log("se han guardado los cambios de un usuario desde la vista de admin:"+usuario.getNombreCompleto_usuario());
 			return "/admin";
 		} else if (accion.equals("borrar")) {
-			Usuario usuarioDAO=usuarioRepositorio.findById(usuario.getId_usuario()).orElse(null);
+			Usuario usuarioDAO=usuarioRepositorio.buscarPorId(usuario.getId_usuario());
 			usuarioRepositorio.delete(usuarioDAO);
 			Util.log("se ha borrado un usuario desde la vista administrador"+usuarioDAO.getEmailUsuario());
 			return "/admin";
