@@ -469,3 +469,91 @@
 2024-05-26 15:20:37 - Se ha mostrado la vista index
 2024-05-26 15:24:20 - Se ha mostrado la vista index
 2024-05-26 15:29:17 - Se ha mostrado la vista index
+2024-05-26 15:44:09 - Se ha mostrado la vista index
+2024-05-26 15:44:18 - Se ha mostrado la vista index
+2024-05-26 15:44:20 - Se ha mostrado la vista index
+2024-05-26 15:45:13 - Se ha cerrrado sesión de un usuario
+2024-05-26 15:45:21 - Se ha mostrado la vista index
+2024-05-26 15:45:23 - se ha entrado en la vista admin
+2024-05-26 15:45:24 - Se ha mostrado la vista index
+2024-05-26 15:45:25 - se ha entrado en la vista admin
+2024-05-26 15:45:25 - Se ha mostrado la vista index
+2024-05-26 15:45:52 - Se ha mostrado la vista index
+2024-05-26 15:45:54 - se ha entrado en la vista admin
+2024-05-26 15:46:15 - Se ha mostrado la vista index
+2024-05-26 15:46:17 - se ha entrado en la vista admin
+2024-05-26 15:47:44 - se ha entrado en la vista admin
+2024-05-26 15:47:55 - se ha entrado en la vista admin
+2024-05-26 15:48:43 - se ha entrado en la vista admin
+2024-05-26 15:48:50 - se ha entrado en la vista admin
+2024-05-26 15:49:09 - se ha entrado en la vista admin
+2024-05-26 15:49:12 - se ha entrado en la vista admin/post
+2024-05-26 15:49:16 - se ha entrado en la vista admin
+2024-05-26 15:49:18 - se ha entrado en la vista admin/usuarios
+2024-05-26 15:49:23 - se ha entrado en la vista admin
+2024-05-26 15:49:29 - Se ha mostrado la vista index
+2024-05-26 15:49:33 - se ha entrado en la vista admin
+2024-05-26 15:50:27 - se ha entrado en la vista admin
+2024-05-26 15:50:48 - se ha entrado en la vista admin
+2024-05-26 15:50:58 - se ha entrado en la vista admin
+2024-05-26 15:51:06 - se ha entrado en la vista admin
+2024-05-26 15:51:08 - se ha entrado en la vista admin/usuarios
+2024-05-26 15:51:09 - se ha entrado en la vista admin
+2024-05-26 15:51:28 - se ha entrado en la vista admin
+2024-05-26 15:56:56 - Se ha mostrado la vista index
+2024-05-26 15:56:58 - se ha entrado en la vista admin
+2024-05-26 15:57:06 - Se ha mostrado la vista index
+2024-05-26 15:57:08 - se ha entrado en la vista admin
+2024-05-26 15:57:08 - Se ha mostrado la vista index
+2024-05-26 16:00:24 - Se ha mostrado la vista index
+2024-05-26 16:00:29 - Se ha mostrado la vista index
+2024-05-26 16:00:29 - Se ha cerrrado sesión de un usuario
+2024-05-26 16:00:36 - Se ha mostrado la vista index
+2024-05-26 16:00:38 - se ha entrado en la vista admin
+2024-05-26 16:05:53 - Se ha mostrado la vista index
+2024-05-26 16:05:55 - se ha entrado en la vista admin
+2024-05-26 16:07:27 - Se ha mostrado la vista index
+2024-05-26 16:07:28 - se ha entrado en la vista admin
+2024-05-26 16:10:06 - Se ha mostrado la vista index
+2024-05-26 16:10:26 - Se ha mostrado la vista index
+2024-05-26 16:11:29 - Se ha mostrado la vista index
+2024-05-26 16:11:31 - Se ha mostrado la vista index
+2024-05-26 16:11:31 - Se ha mostrado la vista index
+2024-05-26 16:11:57 - Se ha mostrado la vista index
+2024-05-26 16:11:59 - se ha entrado en la vista admin
+2024-05-26 16:12:40 - se ha entrado en la vista admin
+2024-05-26 16:12:42 - Se ha mostrado la vista index
+2024-05-26 16:13:06 - se ha entrado en la vista admin
+2024-05-26 16:13:26 - se ha entrado en la vista admin
+2024-05-26 16:13:28 - se ha entrado en la vista admin
+2024-05-26 16:13:29 - Se ha mostrado la vista index
+2024-05-26 16:13:29 - se ha entrado en la vista admin
+2024-05-26 16:13:31 - Se ha mostrado la vista index
+2024-05-26 16:13:36 - se ha entrado en la vista admin
+2024-05-26 16:13:47 - Se ha mostrado la vista index
+2024-05-26 16:13:49 - Se ha cerrrado sesión de un usuario
+2024-05-26 16:18:04 - Se ha mostrado la vista index
+2024-05-26 16:18:36 - Se ha mostrado la vista index
+2024-05-26 16:18:38 - Se ha mostrado la vista index
+2024-05-26 16:19:52 - Se ha mostrado la vista index
+2024-05-26 16:20:20 - Se ha mostrado la vista index
+2024-05-26 16:20:20 - Se ha mostrado la vista index
+2024-05-26 16:20:20 - Se ha mostrado la vista index
+2024-05-26 16:20:21 - Se ha mostrado la vista index
+2024-05-26 16:20:21 - Se ha mostrado la vista index
+2024-05-26 16:20:21 - Se ha mostrado la vista index
+2024-05-26 16:24:12 - Se ha mostrado la vista index
+2024-05-26 16:24:13 - se ha entrado en la vista admin
+2024-05-26 16:24:14 - se ha entrado en la vista admin/usuarios
+2024-05-26 16:24:15 - se ha entrado en la vista admin
+2024-05-26 16:24:15 - se ha entrado en la vista admin/post
+2024-05-26 16:24:17 - se ha entrado en la vista admin
+2024-05-26 16:24:18 - Se ha cerrrado sesión de un usuario
+2024-05-26 16:24:34 - Se ha mostrado la vista index
+2024-05-26 16:27:09 - Se ha mostrado la vista index
+2024-05-26 16:27:43 - Se ha mostrado la vista index
+2024-05-26 16:30:32 - Se ha cambiado la imagen del usuario:mnoceacabrera@gmail.com
+2024-05-26 16:34:59 - Se ha cambiado la imagen del usuario:mnoceacabrera@gmail.com
+2024-05-26 16:35:03 - Se ha cambiado la imagen del usuario:mnoceacabrera@gmail.com
+2024-05-26 16:35:07 - Se ha cambiado la imagen del usuario:mnoceacabrera@gmail.com
+2024-05-26 16:35:12 - Se ha mostrado la vista index

@@ -9,12 +9,13 @@
 }
 .footer {
     position: fixed;
-    left: 0;
     bottom: 0;
+    left: 0;
     width: 100%;
-    background-color: #f8f9fa; /* Cambia esto al color de fondo que desees */
-    color: #212529; /* Cambia esto al color de texto que desees */
-    padding: 20px 0; /* Ajusta el relleno según sea necesario */
+    background-color: #f8f9fa; /* Color de fondo */
+    padding: 20px 0; /* Espaciado interno */
+    text-align: center;
+    z-index: 1000; /* Asegura que esté en la parte superior */
 }
 .contenido1 {
     flex: 1;
