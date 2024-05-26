@@ -10,4 +10,5 @@ import proyectoFinalJava.proyectoFinalJava.Modelos.Usuario;
 @Repository
 public interface LikeRepositorio extends JpaRepository<Like, Long>{
 	Like findByUsuarioAndPost(Usuario usuario, Post post);
+	boolean existsByUsuarioAndPost(Usuario usuario, Post post);
 }

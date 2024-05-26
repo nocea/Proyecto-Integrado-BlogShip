@@ -18,6 +18,14 @@ public class PostDTO {
 	    private int cantidad_comentarios;
 	    private List<Like> likes;
 	    private int cantidad_likes;
+	    private boolean usuarioHaDadoLike;
+	    public boolean getUsuarioHaDadoLike() {
+	        return usuarioHaDadoLike;
+	    }
+
+	    public void setUsuarioHaDadoLike(boolean usuarioHaDadoLike) {
+	        this.usuarioHaDadoLike = usuarioHaDadoLike;
+	    }
 	    //gets y sets
 	    
 	    public int getCantidad_likes() {

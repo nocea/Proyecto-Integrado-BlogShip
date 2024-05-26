@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.origin.SystemEnvironmentOrigin;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,7 @@ import proyectoFinalJava.proyectoFinalJava.Repositorio.LikeRepositorio;
 import proyectoFinalJava.proyectoFinalJava.Repositorio.MensajeRepositorio;
 import proyectoFinalJava.proyectoFinalJava.Repositorio.PostRepositorio;
 import proyectoFinalJava.proyectoFinalJava.Repositorio.UsuarioRepositorio;
+import proyectoFinalJava.proyectoFinalJava.Servicios.LikeServicio;
 import proyectoFinalJava.proyectoFinalJava.Servicios.PostServicio;
 import proyectoFinalJava.proyectoFinalJava.Servicios.UsuarioServicio;
 import proyectoFinalJava.proyectoFinalJava.Util.Util;
@@ -49,6 +51,8 @@ public class UsuarioNormalControlador {
 	ComentarioRepositorio comentarioRepositorio;
 	@Autowired
 	MensajeRepositorio mensajeRepositorio;
+	@Autowired
+	LikeServicio likeServiocio;
 	/**
 	 * metodo para mostrar los datos del usuario que ha iniciado sesión
 	 * @param model
@@ -83,6 +87,9 @@ public class UsuarioNormalControlador {
 	@GetMapping("/inicio/paraTi")
 	public String paraTi(Model model) {
 		try {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	    String username = authentication.getName();
+	    System.out.println(username);
 		List<Post> posts = postRepositorio.findAll();
 		List<PostDTO> listaPostDTO = posts.stream()
                 .map(postServicio::convertirPostADTO)
@@ -92,6 +99,9 @@ public class UsuarioNormalControlador {
             String imagenBase64 = Base64.getEncoder().encodeToString(imagen_post);
             postDTO.setString_imagen_post(imagenBase64);
             postDTO.setUsuario_alias_post(postDTO.getUsuario().getAlias_usuario());
+            boolean userHasLiked = likeServiocio.usuarioHaDadoLike(username, postDTO.getId_post());
+            System.out.println(userHasLiked);//para verificar si el usuario ya le ha dado like
+            postDTO.setUsuarioHaDadoLike(userHasLiked);
         }
         model.addAttribute("posts", listaPostDTO);
 		return "paraTi";

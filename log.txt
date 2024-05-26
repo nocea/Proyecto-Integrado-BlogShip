@@ -465,3 +465,7 @@
 2024-05-21 17:45:21 - Se ha registrado un usuario
 2024-05-21 17:50:01 - Se ha registrado un usuario
 2024-05-21 17:50:32 - Se ha mostrado la vista index
+2024-05-26 15:10:40 - Se ha mostrado la vista index
+2024-05-26 15:20:37 - Se ha mostrado la vista index
+2024-05-26 15:24:20 - Se ha mostrado la vista index
+2024-05-26 15:29:17 - Se ha mostrado la vista index
