@@ -31,8 +31,8 @@ public class Post {
     private String pieDeFoto_post;
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL)
     private List<Comentario> comentarios;
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_id", nullable = false )
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Like> likes;

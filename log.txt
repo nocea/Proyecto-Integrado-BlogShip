@@ -557,3 +557,125 @@
 2024-05-26 16:35:03 - Se ha cambiado la imagen del usuario:mnoceacabrera@gmail.com
 2024-05-26 16:35:07 - Se ha cambiado la imagen del usuario:mnoceacabrera@gmail.com
 2024-05-26 16:35:12 - Se ha mostrado la vista index
+2024-05-27 10:24:30 - Se ha mostrado la vista index
+2024-05-27 10:24:33 - Se ha mostrado la vista index
+2024-05-27 10:26:07 - Se ha mostrado la vista index
+2024-05-27 10:26:16 - Se ha mostrado la vista index
+2024-05-27 10:26:22 - Se ha mostrado la vista index
+2024-05-27 10:26:28 - Se ha mostrado la vista index
+2024-05-27 10:26:34 - Se ha mostrado la vista index
+2024-05-27 10:26:40 - Se ha mostrado la vista index
+2024-05-27 10:26:41 - Se ha mostrado la vista index
+2024-05-27 10:26:57 - Se ha mostrado la vista index
+2024-05-27 10:27:07 - Se ha mostrado la vista index
+2024-05-27 10:27:15 - Se ha mostrado la vista index
+2024-05-27 10:27:15 - Se ha mostrado la vista index
+2024-05-27 10:27:47 - Se ha mostrado la vista index
+2024-05-27 10:28:10 - Se ha mostrado la vista index
+2024-05-27 10:32:55 - Se ha mostrado la vista index
+2024-05-27 10:33:45 - Se ha mostrado la vista index
+2024-05-27 10:33:46 - Se ha mostrado la vista index
+2024-05-27 10:33:50 - Se ha mostrado la vista index
+2024-05-27 10:34:32 - Se ha mostrado la vista index
+2024-05-27 10:34:38 - Se ha mostrado la vista index
+2024-05-27 10:34:39 - Se ha mostrado la vista index
+2024-05-27 10:34:40 - Se ha mostrado la vista index
+2024-05-27 10:34:40 - Se ha mostrado la vista index
+2024-05-27 10:34:40 - Se ha mostrado la vista index
+2024-05-27 10:34:40 - Se ha mostrado la vista index
+2024-05-27 10:34:40 - Se ha mostrado la vista index
+2024-05-27 10:34:55 - Se ha mostrado la vista index
+2024-05-27 10:36:18 - Se ha mostrado la vista index
+2024-05-27 10:36:59 - Se ha mostrado la vista index
+2024-05-27 10:37:00 - Se ha mostrado la vista index
+2024-05-27 10:37:07 - Se ha mostrado la vista index
+2024-05-27 10:37:33 - Se ha mostrado la vista index
+2024-05-27 10:37:53 - Se ha mostrado la vista index
+2024-05-27 10:39:26 - Se ha mostrado la vista index
+2024-05-27 10:39:41 - Se ha mostrado la vista index
+2024-05-27 10:40:25 - Se ha mostrado la vista index
+2024-05-27 10:42:01 - Se ha mostrado la vista index
+2024-05-27 10:42:29 - Se ha mostrado la vista index
+2024-05-27 10:42:31 - Se ha mostrado la vista index
+2024-05-27 10:52:37 - Se ha mostrado la vista index
+2024-05-27 10:52:46 - Se ha mostrado la vista index
+2024-05-27 10:54:49 - Se ha mostrado la vista index
+2024-05-27 10:56:01 - Se ha mostrado la vista index
+2024-05-27 10:56:06 - Se ha cerrrado sesión de un usuario
+2024-05-27 10:56:11 - Se ha mostrado la vista index
+2024-05-27 10:56:20 - se ha entrado en la vista admin
+2024-05-27 10:56:40 - se ha entrado en la vista admin
+2024-05-27 10:57:08 - se ha entrado en la vista admin
+2024-05-27 10:57:23 - se ha entrado en la vista admin
+2024-05-27 10:57:28 - se ha entrado en la vista admin/usuarios
+2024-05-27 10:57:30 - Se ha entrado en la vista de /admin/editar/14
+2024-05-27 10:58:54 - Se ha entrado en la vista de /admin/editar/14
+2024-05-27 10:59:14 - Se ha entrado en la vista de /admin/editar/14
+2024-05-27 11:02:19 - Se ha entrado en la vista de /admin/editar/14
+2024-05-27 11:02:30 - se ha borrado un usuario desde la vista administradormnoceacabrera@gmail.com
+2024-05-27 11:02:31 - se ha entrado en la vista admin/usuarios
+2024-05-27 11:02:34 - se ha entrado en la vista /admin/nuevoUsuario
+2024-05-27 11:02:55 - se ha registrado un usuario desde la vista admin
+2024-05-27 11:02:55 - se ha entrado en la vista admin/usuarios
+2024-05-27 11:03:21 - Se ha cerrrado sesión de un usuario
+2024-05-27 11:03:28 - Se ha mostrado la vista index
+2024-05-27 11:03:51 - Se ha guardado un post nuevo
+2024-05-27 11:04:00 - Se ha añadido un nuevo  comentario al post:5
+2024-05-27 11:04:19 - Se ha cambiado la imagen del usuario:mnoceacabrera@gmail.com
+2024-05-27 11:05:09 - Se ha cerrrado sesión de un usuario
+2024-05-27 11:05:16 - Se ha mostrado la vista index
+2024-05-27 11:05:18 - se ha entrado en la vista admin
+2024-05-27 11:05:19 - se ha entrado en la vista admin/usuarios
+2024-05-27 11:05:22 - se ha entrado en la vista admin
+2024-05-27 11:05:22 - se ha entrado en la vista admin/post
+2024-05-27 11:06:20 - se ha borrado un post5
+2024-05-27 11:06:20 - se ha entrado en la vista admin/post
+2024-05-27 11:06:24 - Se ha mostrado la vista index
+2024-05-27 11:06:24 - se ha entrado en la vista admin
+2024-05-27 11:06:25 - se ha entrado en la vista admin/usuarios
+2024-05-27 11:12:20 - Se ha registrado un usuario
+2024-05-27 11:12:44 - Se ha mostrado la vista index
+2024-05-27 11:12:47 - Se ha mostrado la vista index
+2024-05-27 11:12:48 - Se ha cerrrado sesión de un usuario
+2024-05-27 11:13:06 - Se ha mostrado la vista index
+2024-05-27 11:13:08 - se ha entrado en la vista admin
+2024-05-27 11:13:09 - se ha entrado en la vista admin/usuarios
+2024-05-27 11:13:10 - se ha entrado en la vista admin
+2024-05-27 11:13:11 - se ha entrado en la vista admin/post
+2024-05-27 11:13:12 - se ha entrado en la vista admin
+2024-05-27 11:13:12 - Se ha cerrrado sesión de un usuario
+2024-05-27 11:13:21 - Se ha mostrado la vista index
+2024-05-27 11:13:35 - Se ha guardado un post nuevo
+2024-05-27 11:13:48 - Se ha añadido un nuevo  comentario al post:1
+2024-05-27 11:13:57 - Se ha guardado un post nuevo
+2024-05-27 11:14:06 - Se ha guardado un post nuevo
+2024-05-27 11:14:09 - Se ha cerrrado sesión de un usuario
+2024-05-27 11:14:14 - Se ha mostrado la vista index
+2024-05-27 11:14:17 - se ha entrado en la vista admin
+2024-05-27 11:14:24 - se ha entrado en la vista admin/post
+2024-05-27 11:14:27 - se ha borrado un post3
+2024-05-27 11:14:27 - se ha entrado en la vista admin/post
+2024-05-27 11:14:31 - se ha entrado en la vista admin
+2024-05-27 11:14:31 - se ha entrado en la vista admin/usuarios
+2024-05-27 11:14:33 - se ha entrado en la vista admin
+2024-05-27 11:14:34 - se ha entrado en la vista admin/post
+2024-05-27 11:14:35 - se ha borrado un post2
+2024-05-27 11:14:35 - se ha entrado en la vista admin/post
+2024-05-27 11:14:38 - se ha entrado en la vista admin
+2024-05-27 11:14:39 - se ha entrado en la vista admin/usuarios
+2024-05-27 11:15:38 - se ha entrado en la vista admin
+2024-05-27 11:15:38 - se ha entrado en la vista admin/post
+2024-05-27 11:15:40 - se ha borrado un post1
+2024-05-27 11:15:40 - se ha entrado en la vista admin/post
+2024-05-27 11:15:41 - se ha entrado en la vista admin
+2024-05-27 11:15:42 - se ha entrado en la vista admin/usuarios
+2024-05-27 11:16:52 - Se ha mostrado la vista index
+2024-05-27 11:18:38 - Se ha mostrado la vista index
+2024-05-27 11:18:43 - se ha entrado en la vista admin
+2024-05-27 11:18:44 - se ha entrado en la vista admin/post
+2024-05-27 11:18:45 - se ha entrado en la vista admin
+2024-05-27 11:18:45 - se ha entrado en la vista admin/usuarios
+2024-05-27 11:18:47 - se ha entrado en la vista admin
+2024-05-27 11:18:50 - se ha entrado en la vista admin/usuarios
+2024-05-27 11:20:23 - Se ha mostrado la vista index
+2024-05-27 11:20:24 - Se ha cerrrado sesión de un usuario
