@@ -273,8 +273,12 @@ public class UsuarioNormalControlador {
 	 * @return
 	 */
 	@GetMapping("/inicio/conversaciones")
-	public String conversaciones(Model model,Authentication authentication) {
+	public String conversaciones(@RequestParam(name = "error", required = false) String error,Model model,Authentication authentication) {
 		try {
+			if (error != null) {
+		        model.addAttribute("error", error);
+		        System.out.println(error);
+		    }
 			String username = authentication.getName();
 			Usuario usuario = usuarioRepositorio.findFirstByEmailUsuario(username);
 			List<Usuario> usuarioConversaciones=mensajeRepositorio.findUniqueUsersInConversationsWithUser(usuario);//obtengo todas las conversaciones salientes y entrantes
@@ -329,6 +333,21 @@ public class UsuarioNormalControlador {
 			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
     }
+	@GetMapping("/inicio/conversaciones/buscar")
+    public String buscarUsuarioPorTelefono(@RequestParam("telefono") String telefono, Model model, Authentication authentication) {
+		try {
+            Usuario usuarioEncontrado = usuarioRepositorio.buscarporTelefono(telefono);
+            if (usuarioEncontrado != null) {
+                UsuarioDTO usuarioDTO = usuarioServicio.convertirUsuarioADTO(usuarioEncontrado);
+                System.out.println(usuarioDTO.getId_usuario());
+                return "redirect:/inicio/conversaciones/"+usuarioDTO.getId_usuario();
+            } else {
+            	return "redirect:/inicio/conversaciones?error=No+se+ha+encontrado+el+usuario.";
+            }           
+		} catch (Exception e) {
+            return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
+        }
+	}
 	@PostMapping("/inicio/mandarMensaje")
 	public String mandarMensaje(@RequestParam("idReceptor") Long idReceptor,
 			@RequestParam("mensaje") String mensaje,Model model,Authentication authentication) {

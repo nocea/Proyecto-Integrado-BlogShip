@@ -679,3 +679,17 @@
 2024-05-27 11:18:50 - se ha entrado en la vista admin/usuarios
 2024-05-27 11:20:23 - Se ha mostrado la vista index
 2024-05-27 11:20:24 - Se ha cerrrado sesión de un usuario
+2024-05-28 08:10:28 - Se ha mostrado la vista index
+2024-05-28 08:11:14 - Se ha cambiado la imagen del usuario:mnoceacabrera@gmail.com
+2024-05-28 08:26:47 - Se ha mostrado la vista index
+2024-05-28 08:35:12 - Se ha mostrado la vista index
+2024-05-28 08:35:25 - Se ha cerrrado sesión de un usuario
+2024-05-28 08:35:50 - Se ha mostrado la vista index
+2024-05-28 08:37:25 - Se ha mostrado la vista index
+2024-05-28 08:41:22 - Se ha mostrado la vista index
+2024-05-28 08:42:43 - Se ha mostrado la vista index
+2024-05-28 08:43:56 - Se ha mostrado la vista index
+2024-05-28 08:46:49 - Se ha mostrado la vista index
+2024-05-28 08:53:03 - Se ha mostrado la vista index
+2024-05-28 08:53:45 - Se ha mostrado la vista index
+2024-05-28 08:56:41 - Se ha mostrado la vista index
