@@ -3,10 +3,11 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Optional;
+
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.origin.SystemEnvironmentOrigin;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.itextpdf.io.source.ByteArrayOutputStream;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
+
 import proyectoFinalJava.proyectoFinalJava.DTO.ComentarioDTO;
 import proyectoFinalJava.proyectoFinalJava.DTO.MensajeDTO;
 import proyectoFinalJava.proyectoFinalJava.DTO.PostDTO;
@@ -34,6 +42,7 @@ import proyectoFinalJava.proyectoFinalJava.Servicios.LikeServicio;
 import proyectoFinalJava.proyectoFinalJava.Servicios.PostServicio;
 import proyectoFinalJava.proyectoFinalJava.Servicios.UsuarioServicio;
 import proyectoFinalJava.proyectoFinalJava.Util.Util;
+
 @Controller
 public class UsuarioNormalControlador {
 	//IMPLEMENTO SERVICIOS Y REPOSITORIOS PARA PODER USARLOS
@@ -301,6 +310,26 @@ public class UsuarioNormalControlador {
 			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
 	}
+	@GetMapping("/inicio/verPost/{idPost}")
+	public String verPost(@PathVariable("idPost") Long idPost, Model model,Authentication authentication) {
+		try {
+		Post post=new Post();
+		post=postRepositorio.buscarPorId(idPost);
+		PostDTO postDTO=new PostDTO();
+		postDTO.setCantidad_likes(post.getLikes().size());
+		postDTO.setCantidad_comentarios(post.getComentarios().size());
+		postDTO.setPieDeFoto_post(post.getPieDeFoto_post());
+		postDTO.setTitulo_post(post.getTitulo_post());
+		postDTO.setImagen_post(post.getImagen_post());
+		String imagenBase64 = Base64.getEncoder().encodeToString(postDTO.getImagen_post());
+		postDTO.setString_imagen_post(imagenBase64);
+		postDTO.setUbicacion(post.getUbicacion());
+		model.addAttribute("post",postDTO);
+		return "verPost";
+		}catch (Exception e) {
+			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
+	    }
+	}
 	@GetMapping("/inicio/conversaciones/{idReceptor}")
 	public String chat(@PathVariable("idReceptor") Long idReceptor, Model model,Authentication authentication) {
 		try {
@@ -327,7 +356,6 @@ public class UsuarioNormalControlador {
 		model.addAttribute("usuarioReceptor",usuarioReceptorDTO);
         model.addAttribute("idUsuario", idReceptor);
         model.addAttribute("mensajes", mensajesDTO);
-        // Devolver el nombre de la vista Thymeleaf que quieres mostrar, en este caso, la vista "conversaciones"
         return "chat";
 		}catch (Exception e) {
 			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
@@ -369,4 +397,28 @@ public class UsuarioNormalControlador {
 	        return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
 	}
+	@GetMapping("/inicio/descargar-pdf")
+    public ResponseEntity<byte[]> descargarPdf() {
+        // Generar PDF usando iText
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PdfWriter writer = new PdfWriter(baos);
+        PdfDocument pdf = new PdfDocument(writer);
+        Document document = new Document(pdf);
+
+        // Agregar contenido al PDF
+        String datos="prueba mario";
+        Paragraph paragraph = new Paragraph(datos);
+        document.add(paragraph);
+
+        document.close();
+
+        // Configurar respuesta HTTP
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/pdf");
+        headers.add("Content-Disposition", "attachment; filename=misDatos.pdf");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(baos.toByteArray());
+    }
 }

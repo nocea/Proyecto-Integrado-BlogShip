@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>BlogShip</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../static/css/styles.css"
+	th:href="@{/css/styles.css}">
+<!-- Agregar Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Agregar Bootstrap Icons CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+	rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Agregar Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 480px; /* Establecer la altura del mapa */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div id="top" class="container">
+            <a class="nav-link" th:href="@{/index}"><i class="bi bi-rocket-takeoff"></i><i class="bi bi-caret-left"></i></a>
+            
+            <!-- Botón para colapsar el menú en pantallas pequeñas -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/controller/logout}">Cerrar Sesión</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" sec:authorize="hasRole('ROLE_USUARIO')" th:href="@{/inicio/miCuenta}">Mi cuenta</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" sec:authorize="hasRole('ROLE_USUARIO')" th:href="@{/inicio/paraTi}">Para Ti</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" sec:authorize="hasRole('ROLE_USUARIO')" th:href="@{/inicio/conversaciones}">Chats</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li style="margin-left: 10px;" class="nav-item active">
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" class="nav-link">Administración</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="nav-link" th:href="@{/index}"><i class="bi bi-caret-right"></i><i class="bi bi-rocket-takeoff"></i></a>
+        </div>
+    </nav>
+</header>
+<div id="inicio"></div>
+	<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 th:text="${post.titulo_post}" class="text-center"></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <img class="card-img-top img-fluid rounded" th:src="'data:image/jpeg;base64,' + ${post.string_imagen_post}" alt="Imagen Post">
+                <div class="card-body">
+                    <p class="card-text" th:text="${post.pieDeFoto_post}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="map"></div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <i class="bi bi-chat-fill"></i> <span th:text="'Comentarios: ' + ${post.cantidad_comentarios}"></span>
+                </div>
+                <div>
+                    <i class="bi bi-hand-thumbs-up-fill"></i> <span th:text="'Likes: ' + ${post.cantidad_likes}"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script th:inline="javascript">
+    /*<![CDATA[*/
+    // Obtiene la ubicación del post desde Thymeleaf y la convierte en un objeto JavaScript
+    var postUbicacion = /*[[${post.ubicacion}]]*/ {latitud: 0, longitud: 0};
+    var ubicacionArray = postUbicacion.split(',');
+    var latitud = parseFloat(ubicacionArray[0]);
+    var longitud = parseFloat(ubicacionArray[1]);
+    console.log(latitud);
+    console.log(longitud);
+    // Inicializa el mapa con la ubicación del post
+    var map = L.map('map').setView([latitud, longitud], 13);
+
+    // Agrega la capa del mapa base de Leaflet
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Crea y agrega un marcador en la ubicación del post
+    L.marker([latitud, longitud]).addTo(map)
+        .bindPopup('Desde aquí se hizo la foto!')
+        .openPopup();
+    /*]]>*/
+</script>
+</body>
+</html>
