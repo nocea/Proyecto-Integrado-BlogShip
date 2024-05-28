@@ -397,7 +397,7 @@ public class UsuarioNormalControlador {
 	        return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
 	}
-	@GetMapping("/inicio/descargar-pdf")
+	@GetMapping("/proyectoFinalJava/inicio/descargar-pdf")
     public ResponseEntity<byte[]> descargarPdf() {
         // Generar PDF usando iText
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
