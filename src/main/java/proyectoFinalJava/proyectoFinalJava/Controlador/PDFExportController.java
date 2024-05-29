@@ -30,8 +30,7 @@ public class PDFExportController {
 	@GetMapping("/inicio/generate")
 	public void generatePDF(HttpServletResponse response) throws DocumentException, IOException {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String username = authentication.getName();//obtengo el nombre de la autentificación
-		
+		String username = authentication.getName();
 		Usuario usuario = usuarioRepositorio.findFirstByEmailUsuario(username);
 		UsuarioDTO usuarioDTO = usuarioServicio.convertirUsuarioADTO(usuario);
 		response.setContentType("application/pdf");
