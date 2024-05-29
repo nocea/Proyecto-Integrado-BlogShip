@@ -1,7 +1,9 @@
 package proyectoFinalJava.proyectoFinalJava.Servicios;
 
 
-
+ 
+import java.io.ByteArrayInputStream; 
+import java.io.ByteArrayOutputStream;
 import java.io.File; 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,6 +20,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
 
 import jakarta.mail.internet.MimeMessage;
 import proyectoFinalJava.proyectoFinalJava.DTO.UsuarioDTO;

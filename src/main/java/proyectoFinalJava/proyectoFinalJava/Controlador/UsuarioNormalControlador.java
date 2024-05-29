@@ -1,4 +1,5 @@
 package proyectoFinalJava.proyectoFinalJava.Controlador;
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList; 
 import java.util.Base64;
 import java.util.Calendar;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,11 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.itextpdf.io.source.ByteArrayOutputStream;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Paragraph;
+
 
 import proyectoFinalJava.proyectoFinalJava.DTO.ComentarioDTO;
 import proyectoFinalJava.proyectoFinalJava.DTO.MensajeDTO;
@@ -397,28 +395,4 @@ public class UsuarioNormalControlador {
 	        return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
 	}
-	@GetMapping("/proyectoFinalJava/inicio/descargar-pdf")
-    public ResponseEntity<byte[]> descargarPdf() {
-        // Generar PDF usando iText
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        PdfWriter writer = new PdfWriter(baos);
-        PdfDocument pdf = new PdfDocument(writer);
-        Document document = new Document(pdf);
-
-        // Agregar contenido al PDF
-        String datos="prueba mario";
-        Paragraph paragraph = new Paragraph(datos);
-        document.add(paragraph);
-
-        document.close();
-
-        // Configurar respuesta HTTP
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/pdf");
-        headers.add("Content-Disposition", "attachment; filename=misDatos.pdf");
-
-        return ResponseEntity.ok()
-                .headers(headers)
-                .body(baos.toByteArray());
-    }
 }

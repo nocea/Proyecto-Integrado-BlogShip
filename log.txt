@@ -711,3 +711,10 @@
 2024-05-28 10:59:39 - Se ha cerrrado sesión de un usuario
 2024-05-28 10:59:48 - Se ha mostrado la vista index
 2024-05-28 11:07:12 - Se ha mostrado la vista index
+2024-05-29 12:36:39 - Se ha mostrado la vista index
+2024-05-29 12:45:35 - Se ha mostrado la vista index
+2024-05-29 12:56:54 - Se ha mostrado la vista index
+2024-05-29 12:58:49 - Se ha mostrado la vista index
+2024-05-29 13:13:12 - Se ha mostrado la vista index
+2024-05-29 14:41:30 - Se ha mostrado la vista index
+2024-05-29 14:58:16 - Se ha mostrado la vista index
