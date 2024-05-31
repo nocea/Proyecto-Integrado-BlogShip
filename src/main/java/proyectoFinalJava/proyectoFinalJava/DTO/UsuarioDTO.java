@@ -12,6 +12,48 @@ public class UsuarioDTO {
 	private String passwd_usuario;
 	private String rol;
 	private String string_imagen_usuario;
+	private int numeroConversacionesAbiertas;
+	private int numeroMensajesEnviados;
+	private int numeroMensajesRecibidos;
+	private int numeroPostsAsociados;
+	private int numeroTotalLikes;
+	private int numeroTotalComentarios;
+	public int getNumeroTotalLikes() {
+		return numeroTotalLikes;
+	}
+	public void setNumeroTotalLikes(int numeroTotalLikes) {
+		this.numeroTotalLikes = numeroTotalLikes;
+	}
+	public int getNumeroTotalComentarios() {
+		return numeroTotalComentarios;
+	}
+	public void setNumeroTotalComentarios(int numeroTotalComentarios) {
+		this.numeroTotalComentarios = numeroTotalComentarios;
+	}
+	public int getNumeroPostsAsociados() {
+		return numeroPostsAsociados;
+	}
+	public void setNumeroPostsAsociados(int numeroPostsAsociados) {
+		this.numeroPostsAsociados = numeroPostsAsociados;
+	}
+	public int getNumeroMensajesEnviados() {
+		return numeroMensajesEnviados;
+	}
+	public void setNumeroMensajesEnviados(int numeroMensajesEnviados) {
+		this.numeroMensajesEnviados = numeroMensajesEnviados;
+	}
+	public int getNumeroMensajesRecibidos() {
+		return numeroMensajesRecibidos;
+	}
+	public void setNumeroMensajesRecibidos(int numeroMensajesRecibidos) {
+		this.numeroMensajesRecibidos = numeroMensajesRecibidos;
+	}
+	public int getNumeroConversacionesAbiertas() {
+		return numeroConversacionesAbiertas;
+	}
+	public void setNumeroConversacionesAbiertas(int numeroConversacionesAbiertas) {
+		this.numeroConversacionesAbiertas = numeroConversacionesAbiertas;
+	}
 	public String getRol() {
 		return rol;
 	}
@@ -89,5 +131,6 @@ public class UsuarioDTO {
 	public UsuarioDTO() {
 		super();
 	}
+	
 	
 }
