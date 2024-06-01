@@ -43,7 +43,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    
                     <th>Nombre</th>
                     <th>Correo Electrónico</th>
                     <th>Acciones</th>
@@ -51,12 +51,12 @@
             </thead>
             <tbody>
                         <tr th:each="usuario : ${usuarios}" th:unless="${usuario.email_usuario == 'admin@admin'}">
-                            <td th:text="${usuario.id_usuario}"></td>
+                        
                             <td th:text="${usuario.nombreCompleto_usuario}"></td>
                             <td th:text="${usuario.email_usuario}"></td>
                             <td><td>
                                 <a th:href="@{'/admin/editar/' + ${usuario.id_usuario}}" class="btn btn-dark">Editar</a>
-                            </td></td>
+                            </td>
                         </tr>
             </tbody>
         </table>

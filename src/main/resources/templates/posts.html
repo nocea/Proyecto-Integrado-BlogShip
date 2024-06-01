@@ -21,7 +21,7 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    <li style="margin-left: 10px;"class="nav-item active">
+                    <li style="margin-left: 10px;" class="nav-item active">
                         <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" class="nav-link">Administración</a>
                     </li>
                 </ul>
@@ -36,10 +36,19 @@
     <main role="main" class="pb-3">
         <div class="container">
             <h1>Lista de Posts</h1>
+            <!-- Campos de búsqueda -->
+            <div class="row mb-3">
+                <div class="col">
+                    <input type="text" id="txtTituloBusqueda" class="form-control" placeholder="Buscar por Título">
+                </div>
+                <div class="col">
+                    <input type="text" id="txtUsuarioBusqueda" class="form-control" placeholder="Buscar por Usuario">
+                </div>
+            </div>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                      
                         <th>Título</th>
                         <th>Imagen</th>
                         <th>Pie de Foto</th>
@@ -49,21 +58,19 @@
                 </thead>
                 <tbody>
                     <tr th:each="post : ${posts}">
-                        <td th:text="${post.id_post}"></td>
+                       
                         <td th:text="${post.titulo_post}"></td>
                         <td>
                             <img th:src="'data:image/jpeg;base64,' + ${post.string_imagen_post}" alt="Imagen del Post" style="max-width: 100px; max-height: 100px;">
                         </td>
                         <td th:text="${post.pieDeFoto_post}"></td>
                         <td th:text="${post.usuario_alias_post}"></td>
-                       	<td>
-    <td>
-    <form id="formBorrarPost" th:action="@{/admin/borrarPost}" method="post">
-        <input type="hidden" name="postId" th:value="${post.id_post}">
-        <!-- Modificar el botón para llamar a la función de confirmación -->
-        <button type="submit" class="btn btn-danger">Borrar</button>
-    </form>
-</td>
+                        <td>
+                            <form class="formBorrarPost" th:action="@{/admin/borrarPost}" method="post">
+                                <input type="hidden" name="postId" th:value="${post.id_post}">
+                                <button type="button" class="btn btn-danger">Borrar</button>
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -74,29 +81,32 @@
     document.addEventListener("DOMContentLoaded", function() {
         document.querySelectorAll(".btn-danger").forEach(function(btn) {
             btn.addEventListener("click", function() {
-                // Obtener el formulario asociado al botón
-                var form = this.closest("form");
-                // Enviar el formulario
-                form.submit();
+                var confirmation = prompt("Escribe CONFIRMAR para borrar el post:");
+                if (confirmation === "CONFIRMAR") {
+                    var form = this.closest(".formBorrarPost");
+                    form.submit();
+                } else {
+                    alert("El post no fue borrado. Escribe CONFIRMAR para proceder.");
+                }
             });
         });
-    });
-</script>
-<!-- Script de filtrado -->
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("txtTituloBusqueda").addEventListener("input", function () {
-            var filtro = this.value.toLowerCase();
-            var filas = document.querySelectorAll("tbody tr");
 
-            filas.forEach(function (fila) {
-                var titulo = fila.querySelector("td:nth-child(2)").textContent.toLowerCase();
+        document.querySelectorAll("#txtTituloBusqueda, #txtUsuarioBusqueda").forEach(function(input) {
+            input.addEventListener("input", function () {
+                var tituloFiltro = document.getElementById("txtTituloBusqueda").value.toLowerCase();
+                var usuarioFiltro = document.getElementById("txtUsuarioBusqueda").value.toLowerCase();
+                var filas = document.querySelectorAll("tbody tr");
 
-                if (titulo.includes(filtro)) {
-                    fila.style.display = "table-row";
-                } else {
-                    fila.style.display = "none";
-                }
+                filas.forEach(function (fila) {
+                    var titulo = fila.querySelector("td:nth-child(2)").textContent.toLowerCase();
+                    var usuario = fila.querySelector("td:nth-child(5)").textContent.toLowerCase();
+
+                    if (titulo.includes(tituloFiltro) && usuario.includes(usuarioFiltro)) {
+                        fila.style.display = "table-row";
+                    } else {
+                        fila.style.display = "none";
+                    }
+                });
             });
         });
     });

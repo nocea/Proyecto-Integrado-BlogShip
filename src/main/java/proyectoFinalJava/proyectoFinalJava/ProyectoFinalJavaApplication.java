@@ -14,9 +14,11 @@ public class ProyectoFinalJavaApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoFinalJavaApplication.class, args);
 	}
+	/**
+	 * Método para configurar el despliegue como war
+	 */
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		// TODO Auto-generated method stub
 		return builder.sources(ProyectoFinalJavaApplication.class);
 	}
 

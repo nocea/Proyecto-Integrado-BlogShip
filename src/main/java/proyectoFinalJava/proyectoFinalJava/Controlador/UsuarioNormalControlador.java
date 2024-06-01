@@ -308,11 +308,18 @@ public class UsuarioNormalControlador {
 			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
 	}
+	/**
+	 * Método para mostrar  una vista ampliada por cada post
+	 * @param idPost
+	 * @param model
+	 * @param authentication
+	 * @return
+	 */
 	@GetMapping("/inicio/verPost/{idPost}")
 	public String verPost(@PathVariable("idPost") Long idPost, Model model,Authentication authentication) {
 		try {
 		Post post=new Post();
-		post=postRepositorio.buscarPorId(idPost);
+		post=postRepositorio.buscarPorId(idPost);//buscó el post seleccionado
 		PostDTO postDTO=new PostDTO();
 		postDTO.setCantidad_likes(post.getLikes().size());
 		postDTO.setCantidad_comentarios(post.getComentarios().size());
@@ -322,12 +329,19 @@ public class UsuarioNormalControlador {
 		String imagenBase64 = Base64.getEncoder().encodeToString(postDTO.getImagen_post());
 		postDTO.setString_imagen_post(imagenBase64);
 		postDTO.setUbicacion(post.getUbicacion());
-		model.addAttribute("post",postDTO);
+		model.addAttribute("post",postDTO);//lo añado a la vista
 		return "verPost";
 		}catch (Exception e) {
 			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
 	}
+	/**
+	 * Método para mostrar la conversación entre dos usuarios.
+	 * @param idReceptor
+	 * @param model
+	 * @param authentication
+	 * @return
+	 */
 	@GetMapping("/inicio/conversaciones/{idReceptor}")
 	public String chat(@PathVariable("idReceptor") Long idReceptor, Model model,Authentication authentication) {
 		try {
@@ -359,6 +373,13 @@ public class UsuarioNormalControlador {
 			return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
 	    }
     }
+	/**
+	 * Método para buscar un usuario e iniciar una conversación según su teléfono
+	 * @param telefono
+	 * @param model
+	 * @param authentication
+	 * @return
+	 */
 	@GetMapping("/inicio/conversaciones/buscar")
     public String buscarUsuarioPorTelefono(@RequestParam("telefono") String telefono, Model model, Authentication authentication) {
 		try {
@@ -374,6 +395,14 @@ public class UsuarioNormalControlador {
             return "redirect:/controller/ERRORPAGE?error=Se+ha+producido+un+error+inesperado.";
         }
 	}
+	/**
+	 * Método para registrar un mensaje enviado en la base de datos
+	 * @param idReceptor
+	 * @param mensaje
+	 * @param model
+	 * @param authentication
+	 * @return
+	 */
 	@PostMapping("/inicio/mandarMensaje")
 	public String mandarMensaje(@RequestParam("idReceptor") Long idReceptor,
 			@RequestParam("mensaje") String mensaje,Model model,Authentication authentication) {

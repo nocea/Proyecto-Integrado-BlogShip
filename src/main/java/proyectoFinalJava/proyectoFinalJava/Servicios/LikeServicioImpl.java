@@ -21,14 +21,14 @@ public class LikeServicioImpl implements LikeServicio{
 	    private PostRepositorio postRepositorio;
 	@Override
 	public boolean usuarioHaDadoLike(String username, Long postId) {
-		Usuario usuario = usuarioRepositorio.findFirstByEmailUsuario(username);
+		Usuario usuario = usuarioRepositorio.findFirstByEmailUsuario(username);//busco el usuario
         if (usuario == null) {
-            return false; // Usuario no encontrado
+            return false; // usuario no econtrado
         }
 
-        Post post = postRepositorio.findById(postId).orElse(null);
+        Post post = postRepositorio.findById(postId).orElse(null);//busco el post
         if (post == null) {
-            return false; // Publicación no encontrada
+            return false; // post no encontrado
         }
 
         return likeRepositorio.existsByUsuarioAndPost(usuario, post);

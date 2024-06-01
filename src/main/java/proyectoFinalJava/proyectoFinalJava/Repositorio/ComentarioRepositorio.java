@@ -12,9 +12,18 @@ import proyectoFinalJava.proyectoFinalJava.Modelos.Usuario;
 
 @Repository
 public interface ComentarioRepositorio extends JpaRepository<Comentario, Long> {
-
+	/**
+	 * Método para buscar un comentario según al post al que pertenezca
+	 * @param postId
+	 * @return
+	 */
 	@Query("SELECT c FROM Comentario c WHERE c.post.id = :postId")
     List<Comentario> findByPostId(@Param("postId") Long postId);
+	/**
+	 * Método para buscar comentarios que haya hecho un usuario
+	 * @param usuario
+	 * @return
+	 */
 	@Query("SELECT c FROM Comentario c WHERE c.usuario = :usuario")
     List<Comentario> findComentariosByUsuario(@Param("usuario") Usuario usuario);
 
