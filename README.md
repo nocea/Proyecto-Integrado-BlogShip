@@ -22,8 +22,33 @@
 - Intercambiar Mensajes entre usuarios.
 - Visualizar los Datos de su cuenta y poder descargar en pdf.
 - El administrador podra gestionar tanto los usuarios de la web como los posts.
-- ---------------------------------------------------------------
+----------------------------------------------------------------
 ### DISEÑO DEL SISTEMA
 1. Los datos son enviados desde la vista al controlador o viceversa(POST/GET).
 2. Estos datos se gestionan en los servicios y se hacen las diferentes operaciones CRUD en la base de datos.
 3. El controlador devuelve al usuario una respuesta con los datos necesarios.
+----------------------------------------------------------------
+### ESTRUCTURA DEL PROYECTO
+mi-proyecto/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── miempresa/
+│   │   │           └── miprojecto/
+│   │   │               ├── controller/
+│   │   │               ├── model/
+│   │   │               ├── repository/
+│   │   │               ├── service/
+│   │   │               └── Application.java
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       └── static/
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── miempresa/
+│                   └── miprojecto/
+└── pom.xml
+
+
