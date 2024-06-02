@@ -12,6 +12,7 @@
 ---------------------------------------------------------------
 ### DESCRIPCIÓN GENERAL DEL SISTEMA
 ###### El proyecto interactua con una base de externa PostgreSQL 16.2 para almacenar todos los datos de la web,utiliza Java 17, Spring Boot 3.2.2 ,HTML5 y Thymeleaf para la parte del frontend.
+###### El desarrollo se ha llevado acabo en local con EclipseIDE y está desplegado en un servidor de aplicaciones tomcat en centos7 con nginx.
 ---------------------------------------------------------------
 ### FUNCIONALIDADES DE LA WEB
 - Registro y Login de Usuarios
