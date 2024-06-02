@@ -8,10 +8,10 @@
 - Contacto:mnoceacabrera@gmail.com
 ---------------------------------------------------------------
 ### ALCANCE DEL PROYECTO
-El proyecto de Blogship es una pequeña aplicación web que actúa como RRSS sobre el espacio y todo lo relacionado con el mismo,los usuarios pueden intercambiar likes y comentarios en los posts que ellos mismos suben y también intercambiar mensajes entre ellos.
+###### El proyecto de Blogship es una pequeña aplicación web que actúa como RRSS sobre el espacio y todo lo relacionado con el mismo,los usuarios pueden intercambiar likes y comentarios en los posts que ellos mismos suben y también intercambiar mensajes entre ellos.
 ---------------------------------------------------------------
 ### DESCRIPCIÓN GENERAL DEL SISTEMA
-El proyecto interactua con una base de externa PostgreSQL 16.2 para almacenar todos los datos de la web,utiliza Java 17, Spring Boot 3.2.2 ,HTML5 y Thymeleaf para la parte del frontend.
+###### El proyecto interactua con una base de externa PostgreSQL 16.2 para almacenar todos los datos de la web,utiliza Java 17, Spring Boot 3.2.2 ,HTML5 y Thymeleaf para la parte del frontend.
 ---------------------------------------------------------------
 ### FUNCIONALIDADES DE LA WEB
 - Registro y Login de Usuarios
