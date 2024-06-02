@@ -23,5 +23,5 @@ El proyecto interactua con una base de externa PostgreSQL 16.2 para almacenar to
 - ---------------------------------------------------------------
 ### DISEÑO DEL SISTEMA
 1. Los datos son enviados desde la vista al controlador o viceversa(POST/GET).
-2. 2. Estos datos se gestionan en los servicios y se hacen las diferentes operaciones CRUD en la base de datos.
+2. Estos datos se gestionan en los servicios y se hacen las diferentes operaciones CRUD en la base de datos.
 3. El controlador devuelve al usuario una respuesta con los datos necesarios.
