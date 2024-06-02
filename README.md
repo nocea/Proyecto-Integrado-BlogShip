@@ -29,23 +29,23 @@
 3. El controlador devuelve al usuario una respuesta con los datos necesarios.
 ----------------------------------------------------------------
 ### ESTRUCTURA DEL PROYECTO
-Proyecto-Integrado-BlogShip/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │    ├── Application/
-│   │   │    ├── Config/
-│   │   │    ├── Controlador/
-│   │   │    ├── DTO/
-│   │   │    ├── Modelos/
-│   │   │    ├── Repositorio/
-│   │   │    ├── Servicios/
-│   │   │    └── Util/
-│   │   └── resources/
-│   │       ├── application.properties
-│   │       ├── templates/
-│   │       └── static/
-│   └── test/
-└── pom.xml
+- Proyecto-Integrado-BlogShip/
+- ├── src/
+- │   ├── main/
+- │   │   ├── java/
+- │   │   │    ├── Application/
+- │   │   │    ├── Config/
+- │   │   │    ├── Controlador/
+- │   │   │    ├── DTO/
+- │   │   │    ├── Modelos/
+- │   │   │    ├── Repositorio/
+- │   │   │    ├── Servicios/
+- │   │   │    └── Util/
+- │   │   └── resources/
+- │   │       ├── application.properties
+- │   │       ├── templates/
+- │   │       └── static/
+- │   └── test/
+- └── pom.xml
 
 
