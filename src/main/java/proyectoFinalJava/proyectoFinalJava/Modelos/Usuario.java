@@ -35,6 +35,14 @@ public class Usuario {
     private List<Mensajes> mensajesRecibidos;
 	private Boolean registrado;
 	private byte[] imagen_usuario;
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Token> tokens;
+	public List<Token> getTokens() {
+		return tokens;
+	}
+	public void setTokens(List<Token> tokens) {
+		this.tokens = tokens;
+	}
 	public byte[] getImagen_usuario() {
 		return imagen_usuario;
 	}

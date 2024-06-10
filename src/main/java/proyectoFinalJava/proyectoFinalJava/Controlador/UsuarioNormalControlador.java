@@ -381,9 +381,9 @@ public class UsuarioNormalControlador {
 	 * @return
 	 */
 	@GetMapping("/inicio/conversaciones/buscar")
-    public String buscarUsuarioPorTelefono(@RequestParam("telefono") String telefono, Model model, Authentication authentication) {
+    public String buscarUsuarioPorTelefono(@RequestParam("email") String email, Model model, Authentication authentication) {
 		try {
-            Usuario usuarioEncontrado = usuarioRepositorio.buscarporTelefono(telefono);
+            Usuario usuarioEncontrado = usuarioRepositorio.findFirstByEmailUsuario(email);
             if (usuarioEncontrado != null) {
                 UsuarioDTO usuarioDTO = usuarioServicio.convertirUsuarioADTO(usuarioEncontrado);
                 System.out.println(usuarioDTO.getId_usuario());

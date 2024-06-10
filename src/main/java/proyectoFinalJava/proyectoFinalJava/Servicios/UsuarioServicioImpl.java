@@ -167,14 +167,14 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 	 * método para generar un token nuevo
 	 */
 	@Override
-	public String generarToken() {
+	public String generarToken(Usuario usuario) {
 		UUID uuid = UUID.randomUUID();
         String cadena_token = uuid.toString();
         Calendar fechafinToken = Calendar.getInstance();
         fechafinToken.setTimeInMillis(System.currentTimeMillis());
         fechafinToken.add(Calendar.HOUR_OF_DAY, 24);
         System.out.println(fechafinToken);
-        Token tokenNuevo=new Token(cadena_token,fechafinToken);
+        Token tokenNuevo=new Token(cadena_token,fechafinToken,usuario);
         tokenRepositorio.save(tokenNuevo);
 		return cadena_token;
 	}
